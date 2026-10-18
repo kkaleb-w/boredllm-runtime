@@ -1,0 +1,20 @@
+This is a list of Psittaciformes species by global population. While numbers are estimates, they have been made by the experts in their fields. For more information on how these estimates were ascertained, see Wikipedia's articles on population biology and population ecology.
+This list is not comprehensive, as not all Psittaciformes have had their numbers quantified. All numbers, unless explicitly stated in the notes, only count individuals in the wild; IUCN does not consider species held in captivity in its population estimates.
+The IOC World Bird List (version 15.1) recognizes 406 species of Psittaciformes, 14 of which are extinct.
+This list follows IUCN classifications for species names and taxonomy. Where IUCN classifications differ from other ornithological authorities, alternative names and taxonomies are noted.
+Some members of Psittaciformes are extinct:
+
+Norfolk Island kākā (Nestor productus) - extinct by 1850s due to habitat destruction and hunting.
+Carolina parakeet (Conuropsis carolinensis) - last recorded in 1910.
+Cuban macaw (Ara tricolor) - last reported in 1885; extinct due to hunting pressures.
+Puerto Rican parakeet (Psittacara maugei) - extinct by 1892. Considered a subspecies of the Hispaniolan parakeet (P. chloropterus) by IUCN/BirdLife International.
+Mascarene parrot (Mascarinus mascarin) - last reported in 1775; extinct due to hunting pressures.
+Oceanic eclectus (Eclectus infectus) - last observed in 1793; extinct due to hunting and predation pressures.
+Seychelles parakeet (Palaeornis wardi) - last observed in 1893; extinct due to hunting pressures.
+Rodrigues parakeet, or Newton's parakeet (Psittacula exsul) - extinct by 1876, due to hunting pressures, habitat loss, and inclement weather. IUCN/BirdLife International place species in genus Alexandrinus.
+Mauritius grey parrot, or Mascarene grey parakeet (Psittacula bensoni) - extinct by end of 1750s due to deforestation. IUCN/BirdLife International place species in genus Lophopsittacus.
+Paradise parrot (Psephotellus pulcherrimus) - last observed in 1927; extinct due to drought and overgrazing.
+Black-fronted parakeet (Cyanoramphus zealandicus) - last observed in 1844; extinct due to hunting and predation pressures, deforestation.
+Raiatea parakeet (Cyanoramphus ulietanus) - likely extinct by end of 1770s due to predation by invasive species and deforestation.
+Broad-billed parrot (Lophopsittacus mauritianus) - extinct ca. 1674 due to introduced predators.
+Rodrigues parrot (Necropsittacus rodricanus) - last observed in 1761; extinct due to hunting and predation pressures, deforestation.

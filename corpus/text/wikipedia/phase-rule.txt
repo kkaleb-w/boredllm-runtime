@@ -1,0 +1,18 @@
+In thermodynamics, the phase rule is a general principle governing multi-component, multi-phase systems in thermodynamic equilibrium. For a system without chemical reactions, it relates the number of freely varying intensive properties (F) to the number of components (C), the number of phases (P), and number of ways of performing work on the system (N):
+
+ F
+ =
+ N
+ +
+ C
+ −
+ P
+ +
+ 1
+
+ {\displaystyle F=N+C-P+1}
+
+Examples of intensive properties that count toward F are the temperature and pressure. For simple liquids and gases, pressure-volume work is the only type of work, in which case N = 1.
+The rule was derived by American physicist Josiah Willard Gibbs in his landmark paper titled On the Equilibrium of Heterogeneous Substances, published in parts between 1875 and 1878.
+The number of degrees of freedom F (also called the variance) is the number of independent intensive properties, i.e., the largest number of thermodynamic parameters such as temperature or pressure that can be varied simultaneously and independently of each other.
+An example of a one-component system (C = 1) is a pure chemical. A two-component system (C = 2) has two chemically independent components, like a mixture of water and ethanol. Examples of phases that count toward P are solids, liquids and gases.

@@ -1,0 +1,3 @@
+An injector is a system of ducting and nozzles used to direct the flow of a high-pressure fluid in such a way that a lower pressure fluid is entrained in the jet and carried through a duct to a region of higher pressure. It is a fluid-dynamic pump with no moving parts except a valve to control inlet flow.
+Depending on the application, an injector can also take the form of an eductor-jet pump, a water eductor or an aspirator. An ejector operates on similar principles to create a vacuum feed connection for braking systems etc.
+The motive fluid may be a liquid, steam or any other gas. The entrained suction fluid may be a gas, a liquid, a slurry, or a dust-laden gas stream.

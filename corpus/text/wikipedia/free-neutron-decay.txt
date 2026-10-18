@@ -1,0 +1,5 @@
+A free neutron refers to a neutron that is not bound to an atomic nucleus. When embedded in a stable nuclide, neutrons have not been observed to decay. Free neutrons decay with a mean lifetime of 878.4±0.5 s (nearly 15 minutes), which corresponds with a half-life of around 608 seconds.
+The free neutron decays via the weak interaction and may be called the simplest example of beta decay. The decay results in the stable resultant products of a proton, electron and an electron antineutrino. This is expressed as a decay equation:
+
+The decay parameters of such a common baryon are of significance across multiple areas of physics, in particular particle physics and cosmology.
+Highly precise quantitative measurements of the free neutron mean lifetime by two different methods vary by more than the errors in the measurement techniques. This issue has been called the neutron lifetime puzzle.

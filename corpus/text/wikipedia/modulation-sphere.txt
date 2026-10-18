@@ -1,0 +1,6 @@
+The Modulation sphere or M-space formulation is a scheme or theory representing the system of effects of phase modulation and amplitude modulation as applied together on a carrier wave. The relations between both modulations on the carrier are also accounted for.
+The modulation sphere representation relates three variables in three space, M1, M2 and M3:
+
+The M1 axis defines which modulation type (AM or PM) dominates over the other at a set time instance on the carrier and at which degree.
+The M2 axis defines if the interaction between the two modulations is correlative, or anti-correlative (see Correlation) in phase, and at which degree, at the same instance.
+The M3 axis defines the degree the two values are in quadrature phase with each other at that instance, showing also which sideband of those created (LSB or USB) has more power and at which degree.

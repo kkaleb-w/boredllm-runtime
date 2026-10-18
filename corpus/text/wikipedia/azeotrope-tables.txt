@@ -1,0 +1,5 @@
+This page contains tables of azeotrope data for various binary and ternary mixtures of solvents. The data include the composition of a mixture by weight (in binary azeotropes, when only one fraction is given, it is the fraction of the second component), the boiling point (b.p.) of a component, the boiling point of a mixture, and the specific gravity of the mixture. Boiling points are reported at a pressure of 760 mm Hg unless otherwise stated. Where the mixture separates into layers, values are shown for upper (U) and lower (L) layers.
+
+The data were obtained from Lange's 10th edition and CRC Handbook of Chemistry and Physics 44th edition unless otherwise noted (see color code table).
+
+A list of 15825 binary and ternary mixtures was collated and published by the American Chemical Society. An azeotrope databank is also available online through the University of Edinburgh.

@@ -1,0 +1,32 @@
+In physics, the plasmaron was proposed by Lundqvist in 1967 as a quasiparticle arising in a system that has strong plasmon-electron interactions. In the original work, the plasmaron was proposed to describe a secondary peak (or satellite) in the photoemission spectral function of the electron gas. More precisely it was defined as an additional zero of the quasi-particle equation
+
+ (
+ ω
+ −
+
+ ϵ
+
+ H
+
+ −
+ R
+ e
+ [
+ Σ
+ (
+ ω
+ )
+ ]
+ =
+ 0
+ )
+
+ {\displaystyle (\omega -\epsilon _{H}-Re[\Sigma (\omega )]=0)}
+
+. The same authors pointed out, in a subsequent work, that this extra solution might be an artifact of the used approximations:
+
+We want to stress again that the discussion we have given of the one-electron spectrum is based on the assumption that vertex corrections are small. As discussed in the next section recent work by Langreth [29] shows that vertex corrections in the core electron problem can have a quite large effect on the form of satellite structures, while their effect on the quasi particle properties seems to be small. Preliminary investigations by one of us (L.H.) show similar strong vertex effects on the conduction band satellite. The details of the plasmaron structure should thus not be taken very seriously. A more mathematical discussion is provided.
+The plasmaron was also studied in more recent works in the literature. It was shown, also with the support of the numerical simulations, that the plasmaron energy is an artifact of the approximation used to numerically compute the spectral function, e.g. solution of the dyson equation for the many body green function with a frequency dependent GW self-energy. This approach give rise to a wrong plasmaron peak instead of the plasmon satellite which can be measured experimentally.
+Despite this fact, experimental observation of a plasmaron was reported in 2010 for graphene.
+Also supported by earlier theoretical work. However subsequent works discussed that the theoretical interpretation of the experimental measure was not correct, in agreement with the fact that the plasmaron is only an artifact of the GW self-energy used with the Dyson equation. The artificial nature of the plasmaron peak was also proven via the comparison of experimental and numerical simulations for the photo-emission spectrum of bulk silicon. Other works on plasmaron have been published in the literature.
+Observation of plasmaron peaks have also been reported in optical measurements of elemental bismuth and in other optical measurements.

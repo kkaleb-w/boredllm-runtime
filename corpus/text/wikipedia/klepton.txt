@@ -1,0 +1,6 @@
+In biology, a klepton (abbreviated kl.) and synklepton (abbreviated sk.) is a species that requires input from another biological taxon (normally from a species which is closely related to the kleptonic species) to complete its reproductive cycle. Specific types of kleptons are zygokleptons, which reproduce by zygogenesis; gynokleptons which reproduce by gynogenesis, and tychokleptons, which reproduce by a combination of both systems.
+Kleptogenic reproduction results in three potential outcomes:
+
+A unisexual female may simply activate cell division in the egg through the presence of a male's sperm without incorporating any of his genetic material—this results in the production of clonal offspring.
+The female may also incorporate the male's sperm into her egg, but can do so without excising any of her genetic material. This results in increased ploidy levels that range from triploid to pentaploid in wild individuals.
+Finally, the female also has the option of replacing some of her genetic material with that of the male's, resulting in a "hybrid" of sorts without increasing ploidy.

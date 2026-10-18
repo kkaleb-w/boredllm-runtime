@@ -1,0 +1,6 @@
+Spin pumping is the dynamical generation of pure spin current by the coherent precession of magnetic moments, which can efficiently inject spin from a magnetic material into an adjacent non-magnetic material. The non-magnetic material usually hosts the spin Hall effect that can convert the injected spin current into a charge voltage easy to detect. A spin pumping experiment typically requires electromagnetic irradiation to induce magnetic resonance, which converts energy and angular momenta from electromagnetic waves (usually microwaves) to magnetic dynamics and then to electrons, enabling the electronic detection of electromagnetic waves. The device operation of spin pumping can be regarded as the spintronic analog of a battery.
+Spin pumping involves an AC effect and a DC effect:
+
+The AC effect generates a spin current that oscillates at the same frequency with the microwave source.
+The DC effect requires that the magnetic dynamic is circularly polarized or elliptically polarized, whereas a linear oscillation can only generate an AC component.
+Both effects result in a net enhancement of the effective magnetic damping.

@@ -1,0 +1,12 @@
+In chemistry and particularly biochemistry, an energy-rich species (usually energy-rich molecule) or high-energy species (usually high-energy molecule) is a chemical species which reacts, potentially with other species found in the environment, to release chemical energy.
+In particular, the term is often used for:
+
+adenosine triphosphate (ATP) and similar molecules called high-energy phosphates, which release inorganic phosphate into the environment in an exothermic reaction with water:
+ATP + H2O → ADP + Pi ΔG°' = −30.5 kJ/mol (−7.3 kcal/mol)
+fuels such as hydrocarbons, carbohydrates, lipids, proteins, and other organic molecules which react with oxygen in the environment to ultimately form carbon dioxide, water, and sometimes nitrogen, sulfates, and phosphates
+molecular hydrogen
+monatomic oxygen, ozone, hydrogen peroxide, singlet oxygen and other metastable or unstable species which spontaneously react without further reactants
+in particular, the vast majority of free radicals
+explosives such as nitroglycerin and other substances which react exothermically without requiring a second reactant
+metals or metal ions which can be oxidized to release energy
+This is contrasted to species that are either part of the environment (this sometimes includes diatomic triplet oxygen) or do not react with the environment (such as many metal oxides or calcium carbonate); those species are not considered energy-rich or high-energy species.

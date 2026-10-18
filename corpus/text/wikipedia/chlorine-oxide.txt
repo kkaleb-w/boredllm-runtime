@@ -1,0 +1,27 @@
+Chlorine and oxygen can bond in a number of ways:
+
+chlorine monoxide radical, ClO•, chlorine (II) oxide radical
+chloroperoxyl radical, ClO2•, chlorine (II) peroxide radical
+chlorine dioxide, ClO2, chlorine (IV) oxide
+chlorine trioxide radical, ClO3•, chlorine (VI) oxide radical
+chlorine tetroxide radical, ClO4•, chlorine (VII) oxide radical
+dichlorine monoxide, Cl2O, chlorine (I) oxide
+chlorine peroxide, Cl2O2, dimer of chlorine monoxide radical or ClO dimer, chlorine (I) peroxide
+chloryl chloride, ClO2Cl, chlorine (0,IV) oxide
+chlorine chlorite, ClOClO, chlorine (I,III) oxide
+dichlorine trioxide, Cl2O3 as O−Cl−ClO2, chlorine (III,V) oxide
+dichlorine trioxide, Cl2O3 as possible isomer Cl−O−ClO2, chlorine (I,V) oxide
+dichlorine trioxide, Cl2O3 as hypothetical isomer O−Cl−O−Cl−O, chlorine (III) oxide
+dichlorine tetroxide, also known as chlorine perchlorate, Cl2O4 or ClOClO3, chlorine (I,VII) oxide
+dichlorine pentoxide, Cl2O5 or ClOOClO3, is hypothetical
+dichlorine hexoxide or chloryl perchlorate, Cl2O6 or [ClO2]+[ClO4]−, chlorine (V,VII) oxide
+dichlorine heptoxide, Cl2O7, chlorine (VII) oxide
+dichlorine octoxide, chlorine (VII) oxide peroxide or dimer of chlorine tetroxide radical, Cl2O8 or (OClO3)2
+Several ions are also chlorine oxides:
+
+chloryl, ClO+2
+perchloryl, ClO+3
+hypochlorite, ClO−
+chlorite, ClO−2
+chlorate, ClO−3
+perchlorate, ClO−4

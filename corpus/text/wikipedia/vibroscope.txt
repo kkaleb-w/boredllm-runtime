@@ -1,0 +1,5 @@
+Vibroscope (Latin: vibrare 'vibrate' + scope) is an instrument for observing and tracing (and sometimes recording) vibration.
+For example, a primitive mechanical vibroscope consists of a vibrating object with a pointy end which leaves a wave trace on a smoked surface of a rotating cylinder.
+Vibroscopes are used to study properties of substances. For examples, polymers' torsional modulus and Young's modulus may be determined by vibrating the polymers and measuring their frequency of vibration under certain external forces. Similar approach works to determine linear density of thread-shaped objects, such as fibers, filaments, and yarn.
+Vibroscopes are also used to study sound in different areas of the mouth during speech.
+Jean-Marie Duhamel published about an early recording device he called a vibroscope in 1843.

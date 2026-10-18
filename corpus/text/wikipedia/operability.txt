@@ -1,0 +1,5 @@
+Operability is the ability to keep a piece of equipment, a system or a whole industrial installation in a safe and reliable functioning condition, according to pre-defined operational requirements.
+In the development and implementation of industrial and civil plants, operability is generally defined in terms of performance and reliability, as well as the traceability of information relevant to the design, procurement, construction and commissioning of facilities.
+In the context of systems engineering or information technology, operability refers to a system's ability to perform its functions effectively and efficiently, providing users with an accessible, intuitive, and obstacle-free interaction.
+Operability is considered one of the non-functional requirements (also called “ilities”), and is closely related to the concepts of reliability, availability, scalability, testability and maintainability.
+Operability also refers to whether or not a surgical operation can be performed to treat a patient with a reasonable degree of safety and chance of success.

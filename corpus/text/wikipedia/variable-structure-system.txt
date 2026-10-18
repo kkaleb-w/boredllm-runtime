@@ -1,0 +1,139 @@
+A variable structure system, or VSS, is a discontinuous nonlinear system of the form
+
+ x
+
+ ˙
+
+ =
+ φ
+ (
+
+ x
+
+ ,
+ t
+ )
+
+ {\displaystyle {\dot {\mathbf {x} }}=\varphi (\mathbf {x} ,t)}
+
+where
+
+ x
+
+ ≜
+ [
+
+ x
+
+ 1
+
+ ,
+
+ x
+
+ 2
+
+ ,
+ …
+ ,
+
+ x
+
+ n
+
+ ]
+
+ T
+
+ ∈
+
+ R
+
+ n
+
+ {\displaystyle \mathbf {x} \triangleq [x_{1},x_{2},\ldots ,x_{n}]^{\operatorname {T} }\in \mathbb {R} ^{n}}
+
+ is the state vector,
+
+ t
+ ∈
+
+ R
+
+ {\displaystyle t\in \mathbb {R} }
+
+ is the time variable, and
+
+ φ
+ (
+
+ x
+
+ ,
+ t
+ )
+ ≜
+ [
+
+ φ
+
+ 1
+
+ (
+
+ x
+
+ ,
+ t
+ )
+ ,
+
+ φ
+
+ 2
+
+ (
+
+ x
+
+ ,
+ t
+ )
+ ,
+ …
+ ,
+
+ φ
+
+ n
+
+ (
+
+ x
+
+ ,
+ t
+ )
+
+ ]
+
+ T
+
+ :
+
+ R
+
+ n
+ +
+ 1
+
+ ↦
+
+ R
+
+ n
+
+ {\displaystyle \varphi (\mathbf {x} ,t)\triangleq [\varphi _{1}(\mathbf {x} ,t),\varphi _{2}(\mathbf {x} ,t),\ldots ,\varphi _{n}(\mathbf {x} ,t)]^{\operatorname {T} }:\mathbb {R} ^{n+1}\mapsto \mathbb {R} ^{n}}
+
+ is a piecewise continuous function. Due to the piecewise continuity of these systems, they behave like different continuous nonlinear systems in different regions of their state space. At the boundaries of these regions, their dynamics switch abruptly. Hence, their structure varies over different parts of their state space.
+The development of variable structure control depends upon methods of analyzing variable structure systems, which are special cases of hybrid dynamical systems.

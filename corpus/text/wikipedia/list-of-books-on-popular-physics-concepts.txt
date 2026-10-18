@@ -1,0 +1,30 @@
+This is a list of books which talk about things related to current day physics or physics as it would be in the future.
+There a number of books that have been penned about specific physics concepts, e.g. quantum mechanics or kinematics, and many other books which discuss physics in general, i.e. not focussing on a single topic. There are also books that encourage beginners to enjoy physics by making them look at it from different angles.
+
+Capra, Fritjof (1999). The Tao of physics : an exploration of the parallels between modern physics and Eastern mysticism (4th, updated ed.). Boston: Shambhala. ISBN 1-57062-519-0.
+Chandrasekhar, S. (1958). An introduction to the study of stellar structure. [Republication]. New York: Dover. ISBN 978-0486604138. {{cite book}}: ISBN / Date incompatibility (help)
+Feynman, Richard P.; Leighton, Robert B.; Sands, Matthew (2009). The Feynman lectures on physics : the definitive and extended edition (2nd ed.). San Francisco, Calif.: Addison-Wesley. ISBN 978-0805390452.
+— (1997). "Surely You're Joking, Mr. Feynman!" : adventures of a curious character (1st Norton pbk. ed.). New York: W.W. Norton. ISBN 978-0393316049.
+Greene, Brian (2000). The Elegant Universe: Superstrings, Hidden Dimensions, and the Quest for the Ultimate Theory (1. Vintage Books ed.). New York: Vintage Books. ISBN 978-0375708114.
+— (2004). The fabric of the cosmos : space, time, and the texture of reality (1st Vintage Books ed.). New York: Vintage Books. ISBN 978-0375727207.
+— (2011). The Hidden Reality: Parallel Universes and the Deep Laws of the Cosmos (1st ed.). New York: Alfred A. Knopf. ISBN 978-0307265630.
+— (2008). Icarus at the Edge of Time (1st ed.). New York: Alfred A. Knopf. ISBN 978-0307268884.
+Gribbin, John (1984). In search of Schrödinger's cat : quantum physics and reality. Toronto: Bantam Books. ISBN 978-0553341034.
+— (1995). Schrödinger's kittens and the search for reality : solving the quantum mysteries. Boston: Little, Brown & Co. ISBN 978-0316328197.
+Hawking, Stephen (1993). Hawking On the Big Bang and Black Holes. Singapore; New Jersey: World Scientific. ISBN 978-9810210793.
+— (1996). A Brief History of Time (Updated and expanded tenth anniversary ed.). New York: Bantam Books. ISBN 978-0553380163.
+— (2001). The Universe in a Nutshell. New York: Bantam Books. ISBN 055380202X.
+— (2006). The theory of everything: the origin and fate of the universe (Special anniversary ed.). Mumbai: Jaico Pub. House. ISBN 978-8179925911.
+—; Mlodinow, Leonard (2008). A briefer history of time (Bantam trade pbk. ed.). New York: Bantam Books. ISBN 978-0553385465.
+—; Mlodinow, Leonard (2012). The grand design (2012 Bantam Books trade pbk. ed.). New York: Bantam Books. ISBN 978-0553384666.
+Kaku, Michio (1995). Hyperspace : a scientific odyssey through parallel universes, time warps, and the tenth dimension. illustrations by Robert O'Keefe (1st Anchor Books ed.). New York: Anchor Books. ISBN 978-0385477055.
+—; Thompson, Jennifer (1999). Beyond Einstein : the cosmic quest for the theory of the universe (Rev. and updated ed.). Oxford [England]: Oxford University Press. ISBN 978-0192861962.
+— (2006). Parallel worlds : a journey through creation, higher dimensions, and the future of the cosmos (1st Anchor Books ed.). New York: Anchor Books. ISBN 978-1400033720.
+— (2009). Physics of the impossible : a scientific exploration into the world of phasers, force fields, teleportation, and time travel (1st Anchor Books ed.). New York: Anchor Books. ISBN 978-0307278821.
+— (2012). Physics of the future : how science will shape human destiny and our daily lives by the year 2100 (1st Anchor Books ed.). New York: Anchor Books. ISBN 978-0307473332.
+Krauss, Lawrence M. A Universe from Nothing: Why There is Something Rather Than Nothing (1st Free Press hardcover ed.). New York: Free Press. ISBN 978-1-4516-2445-8.
+Kumar, Manjit (2009). Quantum : Einstein, Bohr, and the great debate about the nature of reality. Gurgaon: Hachette India. ISBN 978-93-80143-10-1.
+Lewin, Walter; Warren Goldstein. For the love of physics : from the end of the rainbow to the edge of time-- a journey through the wonders of physics (1st Free Press hardcover ed.). New York: Free Press. ISBN 1439108277.
+Talbot, Michael (1988). Beyond the quantum. Toronto: Bantam Books. ISBN 978-0553344806.
+— (1992). Mysticism and the new physics (Rev. and updated ed.). London: Arkana. ISBN 978-0140193282.
+Walker, Jearl (2007). The Flying Circus of Physics (2nd. ed.). Hoboken, NJ: Wiley. ISBN 978-0-471-76273-7.

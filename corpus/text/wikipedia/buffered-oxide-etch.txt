@@ -1,0 +1,4 @@
+Buffered oxide etch (BOE), also known as buffered HF or BHF, is a wet etchant used in microfabrication. It is a mixture of a buffering agent, such as ammonium fluoride NH4F, and hydrofluoric acid (HF). Its primary use is in etching thin films of silicon nitride (Si3N4) or silicon dioxide (SiO2), by the reaction:
+SiO2 + 4HF + 2NH4F → (NH4)2SiF6 + 2H2O
+Concentrated HF (typically 49% HF in water) etches silicon dioxide too quickly for good process control and also peels photoresist used in photolithographic patterning. Buffered oxide etch is commonly used for more controllable etching. Buffering HF with NH4F results in a solution with a more stable pH; thus, more stable concentrations of HF and HF−2, and a more stable etch rate.
+Some oxides produce insoluble products in HF solutions. Thus, HCl may be added to BHF solutions in order to dissolve these insoluble products and produce a higher quality etch.

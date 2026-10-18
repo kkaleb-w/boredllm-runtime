@@ -1,0 +1,10 @@
+Sinner's circle is a concept used in the field of cleaning and detergents. It was introduced by the German chemist Herbert Sinner in 1959, who was working for the detergent manufacturer Henkel at the time. This model, represented as a circle with four quadrants, describes the four main factors that influence cleaning effectiveness.
+The four elements of the Sinner circle are:
+
+Chemistry: This refers to the solvents or detergents used for cleaning. Chemical agents play a crucial role in helping to dissolve dirt and facilitate its removal.
+Temperature: Heat can speed up chemical reactions and help dissolve grease and other residues more effectively.
+Mechanical: This involves mechanical agitation or rubbing used to dislodge dirt.
+Time: The length of time the cleaning agents are in contact with the surface to be cleaned.
+According to Sinner, cleaning efficiency can be improved by optimizing these four factors. For example, if one cannot use a very strong detergent for safety or cost reasons, one can compensate by increasing the temperature, extending the cleaning time, or using more mechanical agitation.
+Later research has helped to more clearly describe the interactions between Sinner's four factors in real cleaning scenarios.
+A fifth element, water, is sometimes added as an inner circle.

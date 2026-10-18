@@ -1,0 +1,26 @@
+Delay composition, also called delay charge or delay train, is a pyrotechnic composition, a sort of pyrotechnic initiator, a mixture of oxidizer and fuel that burns in a slow, constant rate that should not be significantly dependent on temperature and pressure. Delay compositions are used to introduce a delay into the firing train, e.g. to properly sequence firing of fireworks, to delay firing of ejection charges in e.g. model rockets, or to introduce a few seconds of time between triggering a hand grenade and its explosion. Typical delay times range between several milliseconds and several seconds.
+A popular delay charge is a tube of pressed black powder. The mechanical assembly prevents the outright detonation of the charge.
+While delay compositions are principally similar to other fuel-oxidizer compositions, larger grain sizes and less aggressively reacting chemicals are used. Many of the compositions generate little or no gas during burning. Typical materials used are:
+
+Fuels: silicon, boron, manganese, tungsten, antimony, antimony trisulfide, zirconium, zirconium–nickel alloy, zinc, magnesium, etc.
+Oxidizers: lead dioxide, iron oxides, barium chromate, lead chromate, tin(IV) oxide, bismuth(III) oxide, barium sulfate (for high-temperature compositions), potassium perchlorate (usually used in small amount together with other oxidizers), etc.
+Additives to cool down the flame and slow down the reaction can be employed; inert materials or coolants like titanium dioxide, ground glass, chalk, sodium bicarbonate, etc. are common.
+The burn rates are dependent on: [1]
+
+nature of fuel - fuels that release more heat burn faster
+nature of oxidizer - oxidizers that require less heat to decompose burn faster
+the composition ratio - stoichiometric mixtures burn the fastest, also slight excess of metallic fuel also increases burn rate, probably due to heat transfer
+particle sizes - smaller particles burn faster, but too small particles may lead to incomplete or interrupted burn due to too narrow heating zone
+mechanical assembly and housing - charge diameter and thermal conductivity of housing influence lateral heat losses
+ambient temperature - ideally this dependence is very low but extremely low or extremely high temperatures may have influence
+Examples of some compositions are: [2]
+
+black powder with addition of inert material, e.g. chalk or sodium bicarbonate
+lead(II) oxide with silicon, burning at 1.5–2 cm/s
+red lead with silicon, burning at intermediate rate
+lead(IV) oxide with silicon, burning at 5–6 cm/s
+potassium permanganate with antimony, very slow
+Manganese Delay Composition: manganese with lead chromate and barium chromate (lead chromate is the principal oxidizer, barium chromate acts as burning rate modifier, the more of it the slower the reaction) [3] Archived 2008-06-02 at the Wayback Machine
+Tungsten Delay Composition: tungsten with barium chromate and potassium perchlorate [4]
+Zirconium Nickel Alloy Delay Composition: zirconium-nickel alloy with barium chromate and potassium perchlorate.
+boron with barium chromate [5]

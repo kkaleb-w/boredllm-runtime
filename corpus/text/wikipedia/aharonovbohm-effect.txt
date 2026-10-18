@@ -1,0 +1,27 @@
+The Aharonov–Bohm effect, sometimes called the Ehrenberg–Siday–Aharonov–Bohm effect, is a quantum-mechanical phenomenon in which an electrically charged particle is affected by an electromagnetic potential (
+
+ φ
+
+ {\displaystyle \varphi }
+
+,
+
+ A
+
+ {\displaystyle \mathbf {A} }
+
+), despite being confined to a region in which both the magnetic field
+
+ B
+
+ {\displaystyle \mathbf {B} }
+
+ and electric field
+
+ E
+
+ {\displaystyle \mathbf {E} }
+
+ are zero. The underlying mechanism is the coupling of the electromagnetic potential with the complex phase of a charged particle's wave function, and the Aharonov–Bohm effect is accordingly illustrated by interference experiments.
+The most commonly described case, sometimes called the Aharonov–Bohm solenoid effect, takes place when the wave function of a charged particle passing around a long solenoid experiences a phase shift as a result of the enclosed magnetic field, despite the magnetic field being negligible in the region through which the particle passes and the particle's wavefunction being negligible inside the solenoid. This phase shift has been observed experimentally. There are also magnetic Aharonov–Bohm effects on bound energies and scattering cross sections, but these cases have not been experimentally tested. An electric Aharonov–Bohm phenomenon was also predicted, in which a charged particle is affected by regions with different electrical potentials but zero electric field, but this has no experimental confirmation yet. A separate "molecular" Aharonov–Bohm effect was proposed for nuclear motion in multiply connected regions, but this has been argued to be a different kind of geometric phase as it is "neither nonlocal nor topological", depending only on local quantities along the nuclear path.
+Werner Ehrenberg (1901–1975) and Raymond E. Siday first predicted the effect in 1949. Yakir Aharonov and David Bohm published their analysis in 1959. After publication of the 1959 paper, Bohm was informed of Ehrenberg and Siday's work, which was acknowledged and credited in Bohm and Aharonov's subsequent 1961 paper. The effect was confirmed experimentally while Bohm was still alive (and of course Aharonov as well), first by Robert G. Chambers, with error too large to be generally accepted, and then by Akira Tonomura, with a low enough error.

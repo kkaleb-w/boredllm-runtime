@@ -1,0 +1,9 @@
+A spectator ion is an ion that exists both as a reactant and a product in a chemical equation of an aqueous solution.
+For example, in the reaction of aqueous solutions of sodium carbonate and copper(II) sulfate:
+
+2 Na+(aq) + CO2−3(aq) + Cu2+(aq) + SO2−4(aq) → 2 Na+(aq) + SO2−4(aq) + CuCO3(s)
+The Na+ and SO2−4 ions are spectator ions since they remain unchanged on both sides of the equation. They simply "watch" the other ions react and does not participate in any reaction, hence the name. They are present in total ionic equations to balance the charges of the ions. Whereas the Cu2+ and CO2−3 ions combine to form a precipitate of solid CuCO3. In reaction stoichiometry, spectator ions are removed from a complete ionic equation to form a net ionic equation. For the above example this yields:
+So: 2 Na+(aq) + CO2−3(aq) + Cu2+(aq) + SO2−4(aq) → 2 Na+(aq) + SO2−4(aq) + CuCO3(s) (where x = spectator ion)
+
+⇒ CO2−3(aq) + Cu2+(aq) → CuCO3(s)
+Spectator ion concentration only affects the Debye length. In contrast, potential determining ions, whose concentrations affect surface potential (by surface chemical reactions) as well the Debye length.

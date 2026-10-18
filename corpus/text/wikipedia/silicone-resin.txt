@@ -1,0 +1,11 @@
+Silicone resins are a type of silicone material which is formed by branched, cage-like oligosiloxanes with the general formula of RnSiXmOy, where R is a non-reactive substituent, usually methyl (Me = −CH3) or phenyl (Ph = −C6H5), and X is a functional group: hydrogen (−H), hydroxyl (−OH), chlorine (−Cl) or alkoxy (−O−). These groups are further condensed in many applications, to give highly crosslinked, insoluble polysiloxane networks.
+When R is methyl, the four possible functional siloxane monomeric units are described as follows:
+
+"M" stands for trimethylsilanol, Me3SiO;
+"D" for Me2SiO2;
+"T" for MeSiO3;
+"Q" for SiO4.
+Note that a network of only Q groups becomes fused quartz.
+The most abundant silicone resins are built of D and T units (DT resins) or from M and Q units (MQ resins); however, many other combinations (MDT, MTQ, QDT) are also used in industry.
+Silicone resins represent a broad range of products. Materials of molecular weight in the range of 1000–10,000 are very useful in pressure-sensitive adhesives, silicone rubbers, coatings, and additives. Polysiloxane polymers with reactive side group functionality such as vinyl, acrylate, epoxy, mercaptan, or amine, are used to create thermoset polymer matrix composites, coatings, and adhesives.
+Silicone resins are prepared by hydrolytic condensation of various silicone precursors. In early processes of preparation of silicone resins, sodium silicate and various chlorosilanes were used as starting materials. Although the starting materials were the least expensive ones (something typical for industry), structural control of the product was very difficult. More recently, a less reactive tetraethoxysilane - (TEOS) or ethyl polysilicate and various disiloxanes are used as starting materials.

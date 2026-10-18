@@ -1,0 +1,35 @@
+In theoretical physics, a bubble of nothing is a physical instability that is found in higher-dimensional spacetime models. It was first described by Edward Witten in 1982, as a consequence of the positive energy theorem failing in semiclassical gravity. It is a non-perturbative decay channel of Kaluza–Klein theory, in which spacetime can spontaneously collapse through the nucleation of a gravitational instanton. The collapse of the extra dimensions then propagates outward at the speed of light, similarly to the bubbles formed in false vacuum decay, pushing along objects that impact it. This bubble of nothing has no interior, not even spacetime. Bubbles of nothing are forbidden in models that include supersymmetry.
+It has been considered as an hypothetical end of the universe mechanism. The decay rate for a Kaluza–Klein vacuum is roughly of order
+
+ e
+
+ −
+ π
+
+ R
+
+ 2
+
+ c
+
+ /
+
+ 4
+ G
+ ℏ
+
+ {\displaystyle e^{-\pi R^{2}c/4G\hbar }}
+
+, where
+
+ R
+
+ {\displaystyle R}
+
+ is the radius of the fifth dimension and
+
+ G
+
+ {\displaystyle G}
+
+ is the gravitational constant in 4 dimensions. As bubbles of nothing have not been observed, their absence can be used to put constraints on other theories. In addition, the outer wall of a bubble of nothing resembles a de Sitter space, and Giuseppe Dibitetto has proposed that our universe might lie on the surface of an expanding bubble of nothing in a 5-dimensional ambient space.

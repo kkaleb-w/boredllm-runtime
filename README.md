@@ -73,6 +73,20 @@ The fix belongs to Phase 2, and it is that the world must be able to **contradic
 against an invented object has to fail, and the next observation has to implicitly correct the
 previous invention. Observation alone cannot hold the creature inside the world.
 
+## Live view
+
+**https://bored.kkaleb.com** — one number, one line, one column. No chrome.
+
+```bash
+python3 view_server.py --port 4180            # serves view/ and /snapshot.json
+```
+
+`snapshot.py` compresses a run directory into a small JSON the page polls. The page is
+read-only in both directions: it writes nothing to the run and can send nothing back, so the
+observer cannot perturb the creature (BoredLLM doc 18). Exposed through the existing Cloudflare
+tunnel on `kkaleb.com` as `bored.kkaleb.com -> 127.0.0.1:4180`, which opens no inbound port
+because the tunnel dials out. Runs as `bored-view.service` under `systemd --user`.
+
 ## Model
 
 `meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo`. Chosen by measurement, not preference: 0.5B

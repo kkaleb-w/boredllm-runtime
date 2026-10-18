@@ -1,0 +1,55 @@
+/* bored — the desk at 1am. one number, one line, one column. no chrome. */
+:root {
+  --bg: #0b0c0e;
+  --ink: #d8d5cf;
+  --dim: #6d6a66;
+  --line: #1d1f22;
+  --rep: #7d8fa6;
+  --inv: #a8724f;
+  --inh: #8a9a76;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+body {
+  font: 15px/1.55 ui-monospace, "SF Mono", Menlo, monospace;
+  padding: 34px 20px 70px;
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 720px; margin: 0 auto; }
+header h1 {
+  font-size: 15px; font-weight: 400; letter-spacing: .16em;
+  text-transform: lowercase; margin: 0 0 6px;
+}
+.sub { color: var(--dim); margin: 0 0 34px; font-size: 12.5px; }
+
+.headline { display: flex; gap: 26px; flex-wrap: wrap; padding-bottom: 26px; }
+.big { display: flex; flex-direction: column; }
+.big span { font-size: 30px; line-height: 1; letter-spacing: -.02em; }
+.big label { color: var(--dim); font-size: 11px; margin-top: 7px; letter-spacing: .04em; }
+.big.dim span { color: var(--dim); }
+
+.line { border-top: 1px solid var(--line); padding: 20px 0 8px; }
+canvas { width: 100%; display: block; }
+.legend { color: var(--dim); font-size: 11px; margin-top: 10px; }
+.legend .k { display: inline-block; width: 16px; height: 2px; margin: 0 5px 0 12px; vertical-align: 3px; }
+.legend .rep { background: var(--rep); }
+.legend .inv { background: var(--inv); }
+.legend .inh { background: var(--inh); }
+
+.stream { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 22px; }
+.stream h2 {
+  font-size: 11px; font-weight: 400; color: var(--dim);
+  letter-spacing: .1em; margin: 0 0 16px;
+}
+ol { list-style: none; margin: 0; padding: 0; }
+li { padding: 11px 0; border-bottom: 1px solid #131518; }
+li .meta { color: var(--dim); font-size: 11px; margin-bottom: 4px; }
+li .meta b { color: var(--ink); font-weight: 400; }
+.tag { font-size: 10px; padding: 1px 5px; border: 1px solid var(--line); border-radius: 3px; margin-left: 6px; }
+.tag.inhabit { color: var(--inh); }
+.tag.comment, .tag.template { color: var(--inv); }
+.tag.empty { color: var(--dim); }
+li .t { color: var(--ink); white-space: pre-wrap; }
+li.c rejected .t { color: #8d8a85; }
+footer { color: var(--dim); font-size: 11px; margin-top: 30px; padding-top: 14px; border-top: 1px solid var(--line); }
+a { color: var(--dim); }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>bored — a creature thinking</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>bored</h1>
+    <p class="sub" id="sub">a small model in a dull room, with no instructions</p>
+  </header>
+
+  <section class="headline">
+    <div class="big">
+      <span id="rep">—</span>
+      <label>repetition</label>
+    </div>
+    <div class="big">
+      <span id="invent">—</span>
+      <label>invents a fact</label>
+    </div>
+    <div class="big">
+      <span id="inhabit">—</span>
+      <label>inhabiting</label>
+    </div>
+    <div class="big dim">
+      <span id="ticks">—</span>
+      <label>ticks</label>
+    </div>
+  </section>
+
+  <section class="line">
+    <canvas id="chart" height="150"></canvas>
+    <div class="legend">
+      <span class="k rep"></span> repetition
+      <span class="k inv"></span> invents
+      <span class="k inh"></span> inhabiting
+    </div>
+  </section>
+
+  <section class="stream">
+    <h2>what it is thinking</h2>
+    <ol id="stream"></ol>
+  </section>
+
+  <footer id="foot">—</footer>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>

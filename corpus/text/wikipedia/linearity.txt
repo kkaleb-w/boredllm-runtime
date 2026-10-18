@@ -1,0 +1,73 @@
+In mathematics, the term linear is used in two distinct senses for two different properties:
+
+linearity of a function (or mapping);
+linearity of a polynomial.
+An example of a linear function is the function defined by
+
+ f
+ (
+ x
+ )
+ =
+ (
+ a
+ x
+ ,
+ b
+ x
+ )
+
+ {\displaystyle f(x)=(ax,bx)}
+
+ that maps the real line to a line in the Euclidean plane R2 that passes through the origin. An example of a linear polynomial in the variables
+
+ X
+ ,
+
+ {\displaystyle X,}
+
+ Y
+
+ {\displaystyle Y}
+
+ and
+
+ Z
+
+ {\displaystyle Z}
+
+ is
+
+ a
+ X
+ +
+ b
+ Y
+ +
+ c
+ Z
+ +
+ d
+ .
+
+ {\displaystyle aX+bY+cZ+d.}
+
+Linearity of a mapping is closely related to proportionality. Examples in physics include the linear relationship of voltage and current in an electrical conductor (Ohm's law), and the relationship of mass and weight. By contrast, more complicated relationships, such as between velocity and kinetic energy, are nonlinear.
+Generalized for functions in more than one dimension, linearity means the property of a function of being compatible with addition and scaling, also known as the superposition principle.
+Linearity of a polynomial means that its degree is less than two. The use of the term for polynomials stems from the fact that the graph of a polynomial in one variable is a straight line. In the term "linear equation", the word refers to the linearity of the polynomials involved.
+Because a function such as
+
+ f
+ (
+ x
+ )
+ =
+ a
+ x
+ +
+ b
+
+ {\displaystyle f(x)=ax+b}
+
+ is defined by a linear polynomial in its argument, it is sometimes also referred to as being a "linear function", and the relationship between the argument and the function value may be referred to as a "linear relationship". This is potentially confusing, but usually the intended meaning will be clear from the context.
+The word linear comes from Latin linearis, "pertaining to or resembling a line".

@@ -1,0 +1,5 @@
+The tree of life or universal tree of life is a metaphor, conceptual model, and research tool used to explore the evolution of life and describe the relationships between organisms, both living and extinct, as described in a famous passage in Charles Darwin's On the Origin of Species (1859).
+
+The affinities of all the beings of the same class have sometimes been represented by a great tree. I believe this simile largely speaks the truth.
+Tree diagrams originated in the medieval era to represent genealogical relationships. Phylogenetic tree diagrams in the evolutionary sense date back to the mid-nineteenth century.
+The term phylogeny for the evolutionary relationships of species through time was coined by Ernst Haeckel, who went further than Darwin in proposing phylogenic histories of life. In contemporary usage, tree of life refers to the compilation of comprehensive phylogenetic databases rooted at the last universal common ancestor of life on Earth. Two public databases for the tree of life are TimeTree, for phylogeny and divergence times, and the Open Tree of Life, for phylogeny.

@@ -1,0 +1,7 @@
+This is a list of Accipitriformes species by global population. This list follows IUCN classifications for species names and taxonomy. Where IUCN classifications differ from other ornithological authorities, alternative names and species classifications are noted.
+While numbers are estimates, they have been made by the experts in their fields. For more information on how these estimates were ascertained, see Wikipedia's articles on population biology and population ecology. While not all of these species have had their populations quantified, species without estimates are also listed below in a separate table.
+The order Cathartiformes (containing family Cathartidae, the New World vultures) has been folded into Accipitriformes by the International Ornithological Congress. Other authorities, such as the American Ornithological Society, maintain Cathartiformes and Accipitriformes as two distinct orders. Because Cathartidae has only seven species, they are included in this list for simplicity.
+Version 15.1 of the IOC World Bird List describes 266 members of Accipitriformes when including Cathartidae (259 without). As of December 2025, IUCN/BirdLife International have evaluated 259 of these species, excepting 7 being maintained as subspecies of other birds in this list.
+There is one species listed as a member of Accipitriformes which is extinct:
+
+Bermuda hawk (Bermuteo avivorous) - last observed in 1603.

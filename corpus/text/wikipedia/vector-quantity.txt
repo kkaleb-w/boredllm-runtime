@@ -1,0 +1,19 @@
+In the natural sciences, a vector quantity (also known as a vector physical quantity, physical vector, or simply vector) is a vector-valued physical quantity.
+It is typically formulated as the product of a unit of measurement and a vector numerical value (unitless), often a Euclidean vector with magnitude and direction.
+For example, a position vector in physical space may be expressed as three Cartesian coordinates with SI unit of meters.
+In physics and engineering, particularly in mechanics, a physical vector may be endowed with additional structure compared to a geometrical vector.
+A bound vector is defined as the combination of an ordinary vector quantity and a point of application or point of action.
+
+Bound vector quantities are formulated as a directed line segment, with a definite initial point besides the magnitude and direction of the main vector.
+For example, a force on the Euclidean plane has two Cartesian components in SI unit of newtons (describing the magnitude and direction of the force) and an accompanying two-dimensional position vector in meters (describing the point of application of the force), for a total of four numbers on the plane (and six in space).
+A simpler example of a bound vector is the translation vector from an initial point to an end point; in this case, the bound vector is an ordered pair of points in the same position space, with all coordinates having the same quantity dimension and unit (length and meters).
+A sliding vector is the combination of an ordinary vector quantity and a line of application or line of action, over which the vector quantity can be translated (without rotations).
+A free vector is a vector quantity having an undefined point or region of application; it can be freely translated with no consequences; a displacement vector is a prototypical example of free vector.
+Aside from the notion of units and support, physical vector quantities may also differ from Euclidean vectors in terms of metric.
+For example, an event in spacetime may be represented as a position four-vector, with coherent derived unit of meters: it includes a position Euclidean vector and a timelike component, t⋅c0 (involving the speed of light).
+In that case, the Minkowski metric is adopted instead of the Euclidean metric.
+Vector quantities are a generalization of scalar quantities and can be further generalized as tensor quantities.
+Individual vectors may be ordered in a sequence over time (a time series), such as position vectors discretizing a trajectory.
+A vector may also result from the evaluation, at a particular instant, of a continuous vector-valued function (e.g., the pendulum equation).
+In the natural sciences, the term "vector quantity" also encompasses vector fields defined over a two- or three-dimensional region of space, such as wind velocity over Earth's surface.
+Pseudo vectors and bivectors are also admitted as physical vector quantities.

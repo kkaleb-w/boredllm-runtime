@@ -1,0 +1,40 @@
+In mathematics, the concept of signed frequency (negative and positive frequency) can indicate both the rate and sense of rotation; it can be as simple as a wheel rotating clockwise or counterclockwise. The rate is expressed in units such as revolutions (a.k.a. cycles) per second (hertz) or radians/second (where 1 cycle corresponds to 2π radians).
+Example: Mathematically, the vector
+
+ (
+ cos
+ ⁡
+ (
+ t
+ )
+ ,
+ sin
+ ⁡
+ (
+ t
+ )
+ )
+
+ {\displaystyle (\cos(t),\sin(t))}
+
+ has a positive frequency of +1 radian per unit of time and rotates counterclockwise around a unit circle, while the vector
+
+ (
+ cos
+ ⁡
+ (
+ −
+ t
+ )
+ ,
+ sin
+ ⁡
+ (
+ −
+ t
+ )
+ )
+
+ {\displaystyle (\cos(-t),\sin(-t))}
+
+ has a negative frequency of −1 radian per unit of time, which rotates clockwise instead.

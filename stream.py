@@ -36,6 +36,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from api import Client, DEFAULT_MODEL
 import mind
+import web
 import world as W
 
 COMMENT = re.compile(
@@ -72,6 +73,7 @@ class Stream:
         self.prev_obs = ""
         self.world_novelty = 0.5
         self.last_rep = 0.0
+        self.looks = 0
         self.rows = []
 
     # -------------------------------------------------------------- the world
@@ -130,6 +132,19 @@ class Stream:
             self.text_log.write(" " + frag)
             self.text_log.flush()
         audit = self.world.audit(frag) if frag else {"n_invented_refs": 0, "invented_refs": []}
+        # if it produced a URL, the world honours it. That is the creature directing its
+        # own attention with no instruction anywhere in the loop.
+        if self.args.web and frag:
+            u = web.url_in(frag)
+            if u:
+                looked = web.as_looked(u)
+                if looked:
+                    self.last_world = looked
+                    self.readable.write("\n" + looked + "\n"); self.readable.flush()
+                    self.log.write(json.dumps({"breath": self.breaths, "creature": self.name,
+                                               "world": looked, "looked": u,
+                                               **self.body.state()}) + "\n"); self.log.flush()
+                    self.looks += 1
         hits = []
         if self.body.bored and self.args.memory:
             hits = self.mem.recall(self.own[-200:], limit=2)
@@ -168,6 +183,11 @@ def main():
     ap.add_argument("--outdir", default=os.path.expanduser("~/creature/runs"))
     ap.add_argument("--memory", dest="memory", action="store_true", default=True)
     ap.add_argument("--no-memory", dest="memory", action="store_false")
+    ap.add_argument("--web", dest="web", action="store_true", default=False,
+                    help="the window also opens onto the real, live web. read-only, no write "
+                         "path anywhere. See web.py for why this is legitimate as a condition.")
+    ap.add_argument("--web-every", type=float, default=90,
+                    help="seconds between real-web intrusions when --web is on")
     ap.add_argument("--tag", default="stream")
     args = ap.parse_args()
 
@@ -188,9 +208,21 @@ def main():
 
     t0 = time.time()
     last_world = 0.0
+    last_web = 0.0
     try:
         while not stop["now"]:
             # the world interrupts only when it has actually changed, and not too often
+            if args.web and time.time() - last_web >= args.web_every:
+                for s in streams:
+                    line = web.as_noticed()
+                    if line:
+                        s.last_world = line
+                        s.readable.write("\n" + line + "\n"); s.readable.flush()
+                        s.text_log.write("\n" + line + "\n"); s.text_log.flush()
+                        s.log.write(json.dumps({"breath": s.breaths, "creature": s.name,
+                                                "world": line, "source": "web",
+                                                **s.body.state()}) + "\n"); s.log.flush()
+                last_web = time.time()
             if time.time() - last_world >= args.world_interval:
                 for s in streams:
                     line = s.world_speaks(time.time())

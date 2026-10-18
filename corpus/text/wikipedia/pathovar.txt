@@ -1,0 +1,5 @@
+A pathovar is a bacterial strain or set of strains with the same or similar characteristics, that is differentiated at infrasubspecific level from other strains of the same species or subspecies on the basis of distinctive pathogenicity to one or more plant hosts.
+
+Pathovars are named as a ternary or quaternary addition to the species binomial name, for example the bacterium that causes citrus canker Xanthomonas axonopodis, has several pathovars with different host ranges, X. axonopodis pv. citri is one of them; the abbreviation 'pv.' means pathovar.
+The type strains of pathovars are pathotypes, which are distinguished from the types (holotype, neotype, etc.) of the species to which the pathovar belongs.
+The "Pathovar system" of classification was devised by Doug Dye and John Young at the Plant Diseases Division of the Department of Scientific and Industrial Research in Auckland, New Zealand and published in 1978. It was met with hostility at first, but over time it has become the standard system for naming this group of organisms.

@@ -1,0 +1,5 @@
+The limiting oxygen index (LOI) is the minimum concentration of oxygen, expressed as a percentage, that will support combustion of a polymer. It is measured by passing a mixture of oxygen and nitrogen over a burning specimen, and reducing the oxygen level until a critical level is reached.
+LOI values for different plastics are determined by standardized tests, such as the ISO 4589 and ASTM D2863.
+The LOI value is also dependent on the surrounding temperature of the sample. The percent of oxygen required for combustion reduces as the surrounding temperature is increased.
+Plastics and cable material is tested for its LOI value at both ambient temperature and elevated temperature to understand its oxygen requirement under actual fire conditions.
+Materials with an LOI greater than the atmospheric oxygen concentration are called fire retardant materials.

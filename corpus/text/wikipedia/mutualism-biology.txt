@@ -1,0 +1,15 @@
+Mutualism describes the ecological interaction between two or more species where each species has a net benefit. Mutualism is a common type of ecological interaction. Prominent examples are:
+
+the nutrient exchange between vascular plants and mycorrhizal fungi,
+the fertilization of flowering plants by pollinators,
+the ways plants use fruits and edible seeds to encourage animal aid in seed dispersal, and
+the way corals become photosynthetic with the help of the microorganism zooxanthellae.
+Mutualism can be contrasted with interspecific competition, in which each species experiences reduced fitness, and exploitation, and with parasitism, in which one species benefits at the expense of the other. However, mutualism may evolve from interactions that began with imbalanced benefits, such as parasitism.
+The term mutualism was introduced by Pierre-Joseph van Beneden in his 1876 book Animal Parasites and Messmates to mean "mutual aid among species".
+Mutualism is often conflated with two other types of ecological phenomena: cooperation and symbiosis. Cooperation most commonly refers to increases in fitness through within-species (intraspecific) interactions, although it has been used (especially in the past) to refer to mutualistic interactions, and it is sometimes used to refer to mutualistic interactions that are not obligate. Symbiosis involves two species living in close physical contact over a long period of their existence and may be mutualistic, parasitic, or commensal, so symbiotic relationships are not always mutualistic, and mutualistic interactions are not always symbiotic. Despite a different definition between mutualism and symbiosis, they have been largely used interchangeably in the past, and confusion on their use has persisted.
+Mutualism plays a key part in ecology and evolution. For example, mutualistic interactions are vital for terrestrial ecosystem function as:
+
+about 80% of land plants species rely on mycorrhizal relationships with fungi to provide them with inorganic compounds and trace elements.
+estimates of tropical rainforest plants with seed dispersal mutualisms with animals range at least from 70% to 93.5%. In addition, mutualism is thought to have driven the evolution of much of the biological diversity we see, such as flower forms (important for pollination mutualisms) and co-evolution between groups of species.
+A prominent example of pollination mutualism is with bees and flowering plants. Bees use these plants as their food source with pollen and nectar. In turn, they transfer pollen to other nearby flowers, inadvertently allowing for cross-pollination. Cross-pollination has become essential in plant reproduction and fruit/seed production. The bees get their nutrients from the plants, and allow for successful fertilization of plants, demonstrating a mutualistic relationship between two seemingly-unlike species.
+Mutualism has also been linked to major evolutionary events, such as the evolution of the eukaryotic cell (symbiogenesis) and the colonization of land by plants in association with mycorrhizal fungi.

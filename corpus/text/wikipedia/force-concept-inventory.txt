@@ -1,0 +1,10 @@
+The Force Concept Inventory (FCI) is a widely validated instrument ascertaining high school and college students' conceptual understanding of fundamental conceptions of Newtonian mechanics. FCI, first introduced by Hestenes, Wells, and Swackhamer in the Physics Teacher in 1992, is a revised version of the Mechanics Diagnostic Test (MDT) introduced in 1985 by Halloun and Hestenes in the American Journal of Physics. In 1995, Halloun, Hake, Mosca, and Hestenes revised the FCI to put it in its current version. MDT, and subsequently FCI, spurred the development of a series of conceptual understanding inventories in physics and various other fields. The MDT and FCI revealed how students' erroneous ideas about the motion of physical objects can prevent them from understanding the scientific counterparts of these ideas. For instance, Hestenes (1998) reported that while "nearly 80% of the [students completing introductory college physics courses] could state Newton's Third Law at the beginning of the course, FCI data showed that less than 15% of them fully understood it at the end". These results have been replicated in a number of studies involving students at a range of institutions (see sources section below), and have led to greater recognition in the physics education research community of the importance of students' "active engagement" with the materials to be mastered.
+The 1995 version has 30 five-way multiple choice questions.
+Example question (question 4):
+
+A large truck collides head-on with a small compact car. During the collision:
+the truck exerts a greater amount of force on the car than the car exerts on the truck.
+the car exerts a greater amount of force on the truck than the truck exerts on the car.
+neither exerts a force on the other, the car gets smashed simply because it gets in the way of the truck.
+the truck exerts a force on the car but the car does not exert a force on the truck.
+the truck exerts the same amount of force on the car as the car exerts on the truck.

@@ -1,0 +1,54 @@
+In fluid dynamics, the Cunningham correction factor, or Cunningham slip correction factor (denoted C), is used to account for non-continuum effects when calculating the drag on small particles. The derivation of Stokes' law, which is used to calculate the drag force on small particles, assumes a no-slip condition which is no longer correct at high Knudsen numbers. The Cunningham slip correction factor allows predicting the drag force on a particle moving a fluid with Knudsen number between the continuum regime and free molecular flow.
+The drag coefficient calculated with standard correlations is divided by the Cunningham correction factor, C, given below.
+Ebenezer Cunningham derived the correction factor in 1910 and with Robert Andrews Millikan, verified the correction in the same year.
+
+ C
+ =
+ 1
+ +
+
+ 2
+ λ
+
+ d
+
+ (
+
+ A
+
+ 1
+
+ +
+
+ A
+
+ 2
+
+ e
+
+ −
+
+ A
+
+ 3
+
+ d
+
+ λ
+
+ )
+
+ {\displaystyle C=1+{\frac {2\lambda }{d}}\left(A_{1}+A_{2}e^{\frac {-A_{3}d}{\lambda }}\right)}
+
+where
+
+C is the correction factor
+λ is the mean free path
+d is the particle diameter
+An are experimentally determined coefficients.
+For air (Davies, 1945):
+A1 = 1.257
+A2 = 0.400
+A3 = 0.55
+The Cunningham correction factor becomes significant when particles become smaller than 15 micrometers, for air at ambient conditions.
+For sub-micrometer particles, Brownian motion must be taken into account.

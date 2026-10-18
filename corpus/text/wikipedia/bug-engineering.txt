@@ -1,0 +1,3 @@
+In engineering, a bug is a design defect in an engineered system—such as software, computer hardware, electronics, circuitry, genome, or machinery—that causes an undesired result. Defects outside the scope of design, such as a server crash due to a natural disaster, are not bugs, nor do bugs occur in natural systems such as the weather.
+Bug is a non-technical term; more formal terms, besides defect, are error, flaw, and fault. Bugs may be persistent, sporadic, intermittent, or transient; in computing, crashes, freezes, and glitches are types of bugs.
+Since desirability is subjective, what is undesirable to one may be desirable to another, hence the often comical rejoinder occasionally offered to the report of a bug, "It's not a bug, it's a feature."

@@ -1,0 +1,4 @@
+Nimrod (National Institute Machine Radiating on Downs, "the Mighty Hunter" Nimrod; name attributed to W. Galbraith) was a 7 GeV proton synchrotron operating in the Rutherford Appleton Laboratory in the United Kingdom between 1964 and 1978. Nimrod delivered its last particles at 17:00 hrs on 6 June 1978. Although roughly contemporary with the CERN PS its conservative design used the "weak focussing" principle instead of the much more cost-effective "strong-focussing" technique, which would have enabled a machine of the same cost to reach much higher energies.
+The design and construction of Nimrod was carried out at a capital cost of approximately £11 million. It was used for studies of nuclear and sub-nuclear
+phenomena.
+Nimrod was dismantled and the space it occupied reused for the synchrotron of the ISIS neutron source.

@@ -1,0 +1,11 @@
+This is a list of Pelecaniformes species by global population. While numbers are estimates, they have been made by the experts in their fields. For more information on how these estimates were ascertained, see Wikipedia's articles on population biology and population ecology.
+The IOC World Bird List (version 15.1) recognizes 118 species of Pelecaniformes, seven of which are extinct. As of December 2025, IUCN/BirdLife International have assessed 111 of these species (excepting dimorphic egret, splits from striated heron, the split of cattle egret, and the extinct Ascension night heron). This list follows IUCN classifications for species names and taxonomy. Where IUCN classifications differ from other ornithological authorities, alternative names/taxonomic statuses are noted.
+Several species listed as members of Pelecaniformes are extinct:
+
+Réunion ibis (Threskiornis solitarius) - last seen in 1763.
+New Zealand bittern (Botaurus novaezealandiae) - last seen in 1890. IUCN/BirdLife International place this bird in genus Ixobrychus.
+Bermuda night heron (Nyctanassa carcinocatactes) - last seen in 1610. Likely extinct shortly afterward.
+Ascension night heron (Nycticorax olsoni) - likely went extinct circa 1500. Not listed by IUCN/BirdLife International.
+Réunion night heron (Nycticorax duboisi) - likely went extinct in early 1700s.
+Mauritius night heron (Nycticorax mauritianus) - likely went extinct in early 1700s.
+Rodrigues night heron (Nycticorax megacephalus) - likely extinct circa 1761.

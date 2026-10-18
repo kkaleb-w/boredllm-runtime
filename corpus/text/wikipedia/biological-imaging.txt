@@ -1,0 +1,22 @@
+Biological imaging may refer to any imaging technique used in biology.
+Typical examples include:
+
+Bioluminescence imaging, a technique for studying laboratory animals using luminescent protein
+Calcium imaging, determining the calcium status of a tissue using fluorescent light
+Diffuse optical imaging, using near-infrared light to generate images of the body
+Diffusion-weighted imaging, a type of MRI that uses water diffusion
+Fluorescence lifetime imaging, using the decay rate of a fluorescent sample
+Gallium imaging, a nuclear medicine method for the detection of infections and cancers
+Imaging agent, a chemical designed to allow clinicians to determine whether a mass is benign or malignant
+Imaging studies, which includes many medical imaging techniques
+Magnetic resonance imaging (MRI), a non-invasive method to render images of living tissues
+Magneto-acousto-electrical tomography (MAET), is an imaging modality to image the electrical conductivity of biological tissues
+Medical imaging, creating images of the human body or parts of it, to diagnose or examine disease
+Microscopy, creating images of objects or features too small to be detectable by the naked human eye
+Molecular imaging, used to study molecular pathways inside organisms
+Non-contact thermography, is the field of thermography that derives diagnostic indications from infrared images of the human body.
+Nuclear medicine, uses administered radioactive substances to create images of internal organs and their function.
+Optical imaging, using light as an investigational tool for biological research and medical diagnosis
+Optoacoustic imaging, using the photothermal effect, for the accuracy of spectroscopy with the depth resolution of ultrasound
+Photoacoustic Imaging, a technique to detect vascular disease and cancer using non-ionizing laser pulses
+Ultrasound imaging, using very high frequency sound to visualize muscles and internal organs

@@ -1,0 +1,69 @@
+In electromagnetism, the Lorenz gauge condition or Lorenz gauge (after Ludvig Lorenz) is a partial gauge fixing of the electromagnetic vector potential by requiring ⁠
+
+ ∂
+
+ μ
+
+ A
+
+ μ
+
+ =
+ 0
+
+ {\displaystyle \partial _{\mu }A^{\mu }=0}
+
+⁠. The name is frequently confused with Hendrik Lorentz, who has given his name to many concepts in this field. The condition is Lorentz invariant. The Lorenz gauge condition does not completely determine the gauge: one can still make a gauge transformation ⁠
+
+ A
+
+ μ
+
+ ↦
+
+ A
+
+ μ
+
+ +
+
+ ∂
+
+ μ
+
+ f
+
+ {\displaystyle A^{\mu }\mapsto A^{\mu }+\partial ^{\mu }f}
+
+⁠, where
+
+ ∂
+
+ μ
+
+ {\displaystyle \partial ^{\mu }}
+
+ is the four-gradient and
+
+ f
+
+ {\displaystyle f}
+
+ is any harmonic scalar function: that is, a scalar function obeying ⁠
+
+ ∂
+
+ μ
+
+ ∂
+
+ μ
+
+ f
+ =
+ 0
+
+ {\displaystyle \partial _{\mu }\partial ^{\mu }f=0}
+
+⁠, the equation of a massless scalar field.
+The Lorenz gauge condition is used to eliminate the redundant spin-0 component in Maxwell's equations when these are used to describe a massless spin-1 quantum field. It is also used for massive spin-1 fields where the concept of gauge transformations does not apply at all.

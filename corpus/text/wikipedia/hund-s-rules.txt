@@ -1,0 +1,61 @@
+In atomic physics and quantum chemistry, Hund's rules refers to a set of rules that German physicist Friedrich Hund formulated around 1925, which are used to determine the term symbol that corresponds to the ground state of a multi-electron atom. The first rule is especially important in chemistry, where it is often referred to simply as Hund's Rule.
+The three rules are:
+
+For a given electron configuration, the term with maximum multiplicity has the lowest energy. The multiplicity is equal to
+
+ 2
+ S
+ +
+ 1
+
+ {\displaystyle 2S+1\ }
+
+, where
+
+ S
+
+ {\displaystyle S}
+
+ is the total spin angular momentum for all electrons. The multiplicity is also equal to the number of unpaired electrons plus one. Therefore, the term with lowest energy is also the term with maximum
+
+ S
+
+ {\displaystyle S\,}
+
+ and maximum number of unpaired electrons with equal spin angular momentum (either +1/2 or -1/2).
+For a given multiplicity, the term with the largest value of the total orbital angular momentum quantum number
+
+ L
+
+ {\displaystyle L\,}
+
+ has the lowest energy.
+For a given term, in an atom with outermost shell half-filled or less, the level with the lowest value of the total angular momentum quantum number
+
+ J
+
+ {\displaystyle J\,}
+
+ (for the operator
+
+ J
+
+ =
+
+ L
+
+ +
+
+ S
+
+ {\displaystyle {\boldsymbol {J}}={\boldsymbol {L}}+{\boldsymbol {S}}}
+
+) lies lowest in energy. If the outermost shell is more than half-filled, the level with the highest value of
+
+ J
+
+ {\displaystyle J\,}
+
+ is lowest in energy.
+These rules specify in a simple way how usual energy interactions determine which term includes the ground state. The rules assume that the repulsion between the outer electrons is much greater than the spin–orbit interaction, which is in turn stronger than any other remaining interactions. This is referred to as the LS coupling regime.
+Closed shells and subshells do not contribute to the quantum numbers for total S, the total spin angular momentum and for L, the total orbital angular momentum. It can be shown that for full orbitals and suborbitals both the residual electrostatic energy (repulsion between electrons) and the spin–orbit interaction can only shift all the energy levels together. Thus when determining the ordering of energy levels in general only the outer valence electrons must be considered.

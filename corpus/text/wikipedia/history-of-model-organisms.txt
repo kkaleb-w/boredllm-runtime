@@ -1,0 +1,6 @@
+Model organisms are specific organisms studied to gain knowledge of other organisms, to generalize both within and between species. Model organisms offer standards for comparison of other organisms. Model organism strains are standardized by inbreeding and cloning, to limit genetic variation and create a precise basis for comparison.
+Some organisms
+are experimentally convenient
+and/or important for their history
+and research community.
+The idea of the model organism first took root in the middle of the 19th century with the work of scientists like Charles Darwin and Gregor Mendel and their respective work on natural selection and the genetics of heredity. Beginning in the early 1900s, laboratory experimentation on Drosophila was expanded to use tobacco mosaic virus, E. coli, C57BL/6 (lab mice), etc. These organisms have led to many advances in the past century.

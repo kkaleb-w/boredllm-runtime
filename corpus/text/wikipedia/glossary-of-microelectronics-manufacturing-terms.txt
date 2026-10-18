@@ -1,0 +1,107 @@
+Glossary of microelectronics manufacturing terms
+This is a list of terms used in the manufacture of electronic micro-components. Many of the terms are already defined and explained in Wikipedia; this glossary is for looking up, comparing, and reviewing the terms. You can help enhance this page by adding new terms or clarifying definitions of existing ones.
+
+2.5D integration – an advanced integrated circuit packaging technology that bonds dies and/or chiplets onto an interposer for enclosure within a single package
+3D integration – an advanced semiconductor technology that incorporates multiple layers of circuitry into a single chip, integrated both vertically and horizontally
+3D-IC (also 3DIC or 3D IC) – Three-dimensional integrated circuit; an integrated circuit built with 3D integration
+advanced packaging – the aggregation and interconnection of components before traditional packaging
+ALD – see atomic layer deposition
+atomic layer deposition (ALD) – chemical vapor deposition process by which very thin films of a controlled composition are grown
+back end of line (BEoL) – wafer processing steps from the creation of metal interconnect layers through the final etching step that creates pad openings (see also front end of line, far back end of line, post-fab)
+BEoL – see back end of line
+bonding – any of several technologies that attach one electronic circuit or component to another; see wire bonding, thermocompression bonding, flip chip, hybrid bonding, etc.
+breadboard – a construction base for prototyping of electronics
+bumping – the formation of microbumps on the surface of an electronic circuit in preparation for flip chip assembly
+carrier wafer – a wafer that is attached to dies, chiplets, or another wafer during intermediate steps, but is not a part of the finished device
+chip – an integrated circuit; may refer to either a bare die or a packaged device
+chip carrier – a package built to contain an integrated circuit
+chiplet – a small die designed to be integrated with other components within a single package
+chemical-mechanical polishing (CMP) – smoothing a surface with the combination of chemical and mechanical forces, using an abrasive/corrosive chemical slurry and a polishing pad
+circuit board – see printed circuit board
+class 10, class 100, etc. – a measure of the air quality in a cleanroom; class 10 means fewer than 10 airborne particles of size 0.5 μm or larger are permitted per cubic foot of air
+cleanroom (clean room) – a specialized manufacturing environment that maintains extremely low levels of particulates
+CMP – see chemical-mechanical polishing
+copper pillar – a type of microbump with embedded thin-film thermoelectric material
+deep reactive-ion etching (DRIE) – process that creates deep, steep-sided holes and trenches in a wafer or other substrate, typically with high aspect ratios
+dicing – cutting a processed semiconductor wafer into separate dies
+die – an unpackaged integrated circuit; a rectangular piece cut (diced) from a processed wafer
+die-to-die (also die-on-die) stacking – bonding and integrating individual bare dies atop one another
+die-to-wafer (also die-on-wafer) stacking – bonding and integrating dies onto a wafer before dicing the wafer
+doping – intentional introduction of impurities into a semiconductor material for the purpose of modulating its properties
+DRIE – see deep reactive-ion etching
+e-beam – see electron-beam processing
+EDA – see electronic design automation
+electron-beam processing (e-beam) – irradiation with high energy electrons for lithography, inspection, etc.
+electronic design automation (EDA) – software tools for designing electronic systems
+etching (etch, etch processing) – chemically removing layers from the surface of a wafer during semiconductor device fabrication
+fab – a semiconductor fabrication plant
+fan-out wafer-level packaging – an extension of wafer-level packaging in which the wafer is diced, dies are positioned on a carrier wafer and molded, and then a redistribution layer is added
+far back end of line (FBEoL) – after normal back end of line, additional in-fab processes to create RDL, copper pillars, microbumps, and other packaging-related structures (see also front end of line, back end of line, post-fab)
+FBEoL – see far back end of line
+FEoL – see front end of line
+flip chip – interconnecting electronic components by means of microbumps that have been deposited onto the contact pads
+front end of line (FEoL) – initial wafer processing steps up to (but not including) metal interconnect (see also back end of line, far back end of line, post-fab)
+heterogeneous integration – combining different types of integrated circuitry into a single device; differences may be in fabrication process, technology node, substrate, or function
+HIC - see hybrid integrated circuit
+hybrid bonding – a permanent bond that combines a dielectric bond with embedded metal to form interconnections
+hybrid integrated circuit (HIC) – a miniaturized circuit constructed of both semiconductor devices and passive components bonded to a substrate
+IC – see integrated circuit
+integrated circuit (IC) – a miniature electronic circuit formed by microfabrication on semiconducting material, performing the same function as a larger circuit made from discrete components
+interconnect (n.) – wires or signal traces that carry electrical signals between the elements in an electronic device
+interposer – a small piece of semiconductor material (glass, silicon, or organic) built to host and interconnect two or more dies and/or chiplets in a single package
+lead – a metal structure connecting the circuitry inside a package with components outside the package
+lead frame (or leadframe) – a metal structure inside a package that connects the chip to its leads
+mask – see photomask
+MCM – see multi-chip module
+microbump – a very small solder ball that provides contact between two stacked physical layers of electronics
+microelectronics – the study and manufacture (or microfabrication) of very small electronic designs and components
+microfabrication – the process of fabricating miniature structures of sub-micron scale
+Moore’s Law – an observation by Gordon Moore that the transistor count per square inch on ICs doubled every year, and the prediction that it will continue to do so
+more than Moore – a catch-all phrase for technologies that attempt to bypass Moore’s Law, creating smaller, faster, or more powerful ICs without shrinking the size of the transistor
+multi-chip module (MCM) – an electronic assembly integrating multiple ICs, dies, chiplets, etc. onto a unifying substrate so that they can be treated as one IC
+nanofabrication – design and manufacture of devices with dimensions measured in nanometers
+node – see technology node
+optical mask – see photomask
+package – a chip carrier; a protective structure that holds an integrated circuit and provides connections to other components
+packaging – the final step in device fabrication, when the device is encapsulated in a protective package.
+pad (contact pad or bond pad) – designated surface area on a printed circuit board or die where an electrical connection is to be made
+pad opening – a hole in the final passivation layer that exposes a pad
+parasitics (parasitic structures, parasitic elements) – unwanted intrinsic electrical elements that are created by proximity to actual circuit elements
+passivation layer – an oxide layer that isolates the underlying surface from electrical and chemical conditions
+PCB – see printed circuit board
+photolithography – a manufacturing process that uses light to transfer a geometric pattern from a photomask to a photoresist on the substrate
+photomask (optical mask) – an opaque plate with holes or transparencies that allow light to shine through in a defined pattern
+photoresist – a light-sensitive material used in processes such as photolithography to form a patterned coating on a surface
+pitch – the distance between the centers of repeated elements
+planarization – a process that makes a surface planar (flat)
+polishing – see chemical-mechanical polishing
+post-fab – processes that occur after cleanroom fabrication is complete; performed outside of the cleanroom environment, often by another company
+printed circuit board (PCB) – a board that supports electrical or electronic components and connects them with etched traces and pads
+quilt packaging – a technology that makes electrically and mechanically robust chip-to-chip interconnections by using horizontal structures at the chip edges
+redistribution layer (RDL) – an extra metal layer that makes the pads of an IC available in other locations of the chip
+reticle – a partial plate with holes or transparencies used in photolithography integrated circuit fabrication
+RDL – see redistribution layer
+semiconductor – a material with an electrical conductivity value falling between that of a conductor and an insulator; its resistivity falls as its temperature rises
+silicon – the semiconductor material used most frequently as a substrate in electronics
+silicon on insulator (SoI) – a layered silicon–insulator–silicon substrate
+SiP – see system in package
+SoC – see system on chip
+SoI – see silicon on insulator
+split-fab (split fabrication, split manufacturing) – performing FEoL wafer processing at one fab and BEoL at another
+sputtering (sputter deposition) – a thin film deposition method that erodes material from a target (source) onto a substrate
+stepper – a step-and-scan system used in photolithography
+substrate – the semiconductor material underlying the circuitry of an IC, usually silicon
+system in package (SiP) – a number of integrated circuits (chips or chiplets) enclosed in a single package that functions as a complete system
+system on chip (SoC) – a single IC that integrates all or most components of a computer or other electronic system
+technology node – an industry standard semiconductor manufacturing process generation defined by the minimum size of the transistor gate length
+thermocompression bonding – a bonding technique where two metal surfaces are brought into contact with simultaneous application of force and heat
+thin-film deposition – a technique for depositing a thin film of material onto a substrate or onto previously deposited layers; in IC manufacturing, the layers are insulators, semiconductors, and conductors
+through-silicon via (TSV) – a vertical electrical connection that pierces the (usually silicon) substrate
+trace (signal trace) – the microelectronic equivalent of a wire; a tiny strip of conductor (copper, aluminum, etc.) that carries power, ground, or signal horizontally across a circuit
+TSV – see through-silicon via
+via – a vertical electrical connection between layers in a circuit
+wafer – a disk of semiconductor material (usually silicon) on which electronic circuitry can be fabricated
+wafer-level packaging (WLP) – packaging ICs before they are diced, while they are still part of the wafer
+wafer-to-wafer (also wafer-on-wafer) stacking – bonding and integrating whole processed wafers atop one another before dicing the stack into dies
+wire bonding – using tiny wires to interconnect an IC or other semiconductor device with its package (see also thermocompression bonding, flip chip, hybrid bonding, etc.)
+WLP – see wafer-level packaging

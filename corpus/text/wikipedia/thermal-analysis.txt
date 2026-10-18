@@ -1,0 +1,20 @@
+Thermal analysis is a branch of materials science where the properties of materials are studied as they change with temperature. Several methods are commonly used – these are distinguished from one another by the property which is measured:
+
+Dielectric thermal analysis: dielectric permittivity and loss factor
+Differential thermal analysis: temperature difference versus temperature or time
+Differential scanning calorimetry: heat flow changes versus temperature or time
+Dilatometry: volume changes with temperature change
+Dynamic mechanical analysis: measures storage modulus (stiffness) and loss modulus (damping) versus temperature, time and frequency
+Evolved gas analysis: analysis of gases evolved during heating of a material, usually decomposition products
+Isothermal titration calorimetry
+Isothermal microcalorimetry
+Laser flash analysis: thermal diffusivity and thermal conductivity
+Thermogravimetric analysis: mass change versus temperature or time
+Thermomechanical analysis: dimensional changes versus temperature or time
+Thermo-optical analysis: optical properties
+Derivatography: A complex method in thermal analysis
+Simultaneous thermal analysis generally refers to the simultaneous application of thermogravimetry and differential scanning calorimetry to one and the same sample in a single instrument. The test conditions are perfectly identical for the thermogravimetric analysis and differential scanning calorimetry signals (same atmosphere, gas flow rate, vapor pressure of the sample, heating rate, thermal contact to the sample crucible and sensor, radiation effect, etc.). The information gathered can even be enhanced by coupling the simultaneous thermal analysis instrument to an Evolved Gas Analyzer like Fourier transform infrared spectroscopy or mass spectrometry.
+Other, less common, methods measure the sound or light emission from a sample, or the electrical discharge from a dielectric material, or the mechanical relaxation in a stressed specimen. The essence of all these techniques is that the sample's response is recorded as a function of temperature (and time).
+It is usual to control the temperature in a predetermined way – either by a continuous increase or decrease in temperature at a constant rate (linear heating/cooling) or by carrying out a series of determinations at different temperatures (stepwise isothermal measurements). More advanced temperature profiles have been developed which use an oscillating (usually sine or square wave) heating rate (Modulated Temperature Thermal Analysis) or modify the heating rate in response to changes in the system's properties (Sample Controlled Thermal Analysis).In addition to controlling the temperature of the sample, it is also important to control its environment (e.g. atmosphere). Measurements may be carried out in air or under an inert gas (e.g. nitrogen or helium). Reducing or reactive atmospheres have also been used and measurements are even carried out with the sample surrounded by water or other liquids. Inverse gas chromatography is a technique which studies the interaction of gases and vapours with a surface - measurements are often made at different temperatures so that these experiments can be considered to come under the auspices of Thermal Analysis.
+Atomic force microscopy uses a fine stylus to map the topography and mechanical properties of surfaces to high spatial resolution. By controlling the temperature of the heated tip and/or the sample a form of spatially resolved thermal analysis can be carried out.
+Thermal analysis is also often used as a term for the study of heat transfer through structures. Many of the basic engineering data for modelling such systems comes from measurements of heat capacity and thermal conductivity.

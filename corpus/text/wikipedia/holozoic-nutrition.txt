@@ -1,0 +1,9 @@
+Holozoic nutrition (Greek: holo-whole ; zoikos-of animals) is a type of heterotrophic nutrition that is characterized by the internalization (ingestion) and internal processing of liquids or solid food particles. Protozoa, such as amoebas, and most of the free living animals, such as humans, exhibit this type of nutrition where food is taken into the body as a liquid or solid and then further broken down is known as holozoic nutrition.
+In Holozoic nutrition, the energy and organic building blocks are obtained by ingesting and then digesting other organisms or pieces of other organisms, including blood, flesh and decaying organic matter. This contrasts with holophytic nutrition, in which energy and organic building blocks are obtained through photosynthesis or chemosynthesis, and with saprozoic nutrition, in which digestive enzymes are released externally and the resulting monomers (small organic molecules) are absorbed directly from the environment.
+There are several stages of holozoic nutrition, which often occur in separate compartments within an organism (such as the stomach and intestines):
+
+Ingestion: In animals, this is simply taking food in through the mouth. In protozoa, this most commonly occurs through phagocytosis.
+Digestion: The physical breakdown of complex large food particles and the enzymatic breakdown of complex organic compounds into small, simple molecules.
+Absorption: The active and passive transport of the chemical products of digestion out of the food-containing compartment and into the body
+Assimilation: The chemical products used up for various metabolic processes.
+Egestion: The removal of waste and undigested food, In protozoa, more commonly known as pinocytosis.

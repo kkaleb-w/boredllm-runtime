@@ -1,0 +1,4 @@
+A planetary coordinate system (also referred to as planetographic, planetodetic, or planetocentric) is a generalization of the geographic, geodetic, and the geocentric coordinate systems for planets other than Earth.
+Similar coordinate systems are defined for other solid celestial bodies, such as in the selenographic coordinates for the Moon.
+The coordinate systems for almost all of the solid bodies in the Solar System were established by Merton E. Davies of the Rand Corporation, including Mercury, Venus, Mars, the four Galilean moons of Jupiter, and Triton, the largest moon of Neptune.
+A planetary datum is a generalization of geodetic datums for other planetary bodies, such as the Mars datum; it requires the specification of physical reference points or surfaces with fixed coordinates, such as a specific crater for the reference meridian or the best-fitting equigeopotential as zero-level surface.

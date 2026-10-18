@@ -99,19 +99,21 @@ class Self:
         self.txt = open(os.path.join(args.rundir, f"{self.name}.txt"), "w")
         self.sleeping = 0
         self.n = 0
-        self.done = []   # ledger: does not scroll out
+        self.done = []   # ledger for display only
+        # the only thing ever said to it. nothing follows.
+        self.msgs = [{"role": "user", "content": " "}]
+        self.last_out = {}
 
     def messages(self):
-        """Recent text, plus a ledger of what it has already done that never scrolls out.
+        """Structured history, not prose.
 
-        The window is 1500 chars and a search result is up to 300, so only about four turns
-        fit and a previous question is gone by the time it thinks to ask again. The ledger is
-        what stops that from being amnesia.
+        An action ledger written as text gets continued as a pattern, which reproduced the
+        loop exactly. A completed call has to be structurally completed: assistant with
+        tool_calls, then a tool message carrying the result. That is the shape the model was
+        trained on, and it is the only shape it treats as a fact about the past rather than
+        as something to keep doing.
         """
-        head = ""
-        if self.done:
-            head = "already done: " + " | ".join(self.done[-14:]) + "\n\n"
-        return [{"role": "user", "content": head + (self.own[-self.args.window:] or " ")}]
+        return self.msgs
 
     def calls(self, msg):
         """Both shapes: proper tool_calls, and the leaked <function=..> text form."""
@@ -181,7 +183,7 @@ class Self:
             self.txt.write("\n[asleep]\n"); self.txt.flush()
             self.log.write(json.dumps({"breath": self.n, "asleep": True}) + "\n")
             return
-        msg, _ = client.chat_tools(self.messages(), TOOLS, max_tokens=self.args.tokens,
+        msg, _ = client.chat_tools(self.msgs, TOOLS, max_tokens=self.args.tokens,
                                    temperature=self.args.temp)
         if msg.get("error"):
             self.log.write(json.dumps({"breath": self.n, "error": msg["error"][:200]}) + "\n")
@@ -197,6 +199,7 @@ class Self:
                                            "skipped": f"{nm} with no arguments"}) + "\n")
                 continue
             out = self.call(nm, a)
+            self.last_out[js] = str(out) if out is not None else ""
             short = " ".join(re.findall(r"[a-z']+", str(
                 a.get("question") or a.get("url") or a.get("text") or a.get("expr") or ""
             ).lower()))[:70]
@@ -206,12 +209,25 @@ class Self:
                 self.txt.write(f"\n   [{nm}: {str(out)[:150]}]\n"); self.txt.flush()
                 self.log.write(json.dumps({"breath": self.n, "tool": nm, "arg": js[:200],
                                            "out": str(out)[:400]}) + "\n")
+        # record it as structure: the call, then the result, in the roles the model expects
+        raw_calls = msg.get("tool_calls") or []
+        if raw_calls:
+            self.msgs.append({"role": "assistant", "content": frag or "", "tool_calls": raw_calls})
+            for tc, (nm, a, js) in zip(raw_calls, calls):
+                self.msgs.append({"role": "tool", "tool_call_id": tc.get("id", "call_0"),
+                                  "name": nm, "content": str(self.last_out.get(js, ""))[:1200]})
+        elif frag:
+            self.msgs.append({"role": "assistant", "content": frag})
+            self.msgs.append({"role": "user", "content": " "})
         whole = (frag + toolmsg).strip()
         if not whole:
             return
         self.own += ("\n" if self.own else "") + whole
         if frag:
             self.txt.write(frag + " "); self.txt.flush()
+        # trim, but never drop the opening turn
+        if len(self.msgs) > 41:
+            self.msgs = [self.msgs[0]] + self.msgs[-40:]
         self.body.step(dt_minutes=self.args.breath / 60.0, thought=frag, novelty=0.5,
                        hour=dt.datetime.now().hour)
         display = frag

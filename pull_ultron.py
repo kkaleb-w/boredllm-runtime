@@ -35,11 +35,15 @@ def build():
                  f"ultron, running on its own machine. root, no credentials, no route back here. "
                  f"tools it has written for itself: {len(skills)}"
                  + (f" ({', '.join(s[:-3] for s in skills)})" if skills else " (none yet)")})
-    chunks = [c.strip() for c in md.split("### ") if c.strip()]
-    for i, c in enumerate(chunks, 1):
+    # render as a readable stream: what it thought, then what it did, then what happened
+    rows.append({"breath": 1, "thought":
+                 "\n\nthinking, then acting. each entry is one turn: what it thought, what it ran, "
+                 "what came back."})
+    turns = [c.strip() for c in md.split("## ") if c.strip()]
+    for i, c in enumerate(turns, 2):
         txt = " ".join(c.split())
         if txt:
-            rows.append({"breath": i, "thought": txt[:1200]})
+            rows.append({"breath": i, "thought": txt[:1500]})
     if outbound.strip():
         rows.append({"breath": len(rows), "thought": "outbound: " + " ".join(outbound.split())[:400]})
     with open(os.path.join(OUT, "s0.stream.jsonl"), "w") as fh:

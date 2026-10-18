@@ -110,7 +110,7 @@ def build(rundir, stream_n=30):
             "creatures": creatures,
             "ticks": max((r["tick"] for r in rows), default=0),
             "ticks_total": len(rows),
-            "started": rows[0]["ts"] if rows else None,
+            "started": (rows[0].get("ts") if rows else None),
             "last_ts": latest.get("ts"),
         },
         "headline": {

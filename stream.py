@@ -36,6 +36,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from api import Client, DEFAULT_MODEL
 import mind
+import surface as surface_mod
 import web
 import world as W
 
@@ -74,6 +75,7 @@ class Stream:
         self.world_novelty = 0.5
         self.last_rep = 0.0
         self.looks = 0
+        self.surface = None
         self.rows = []
 
     # -------------------------------------------------------------- the world
@@ -127,6 +129,8 @@ class Stream:
                   "template" if TEMPLATE.search(frag) else "other")
         if frag:
             self.own += " " + frag
+            if self.surface:
+                self.surface.write(self.name, self.breaths, frag)   # the action: it leaves a mark
             self.readable.write(frag + " ")
             self.readable.flush()
             self.text_log.write(" " + frag)
@@ -186,6 +190,8 @@ def main():
     ap.add_argument("--web", dest="web", action="store_true", default=False,
                     help="the window also opens onto the real, live web. read-only, no write "
                          "path anywhere. See web.py for why this is legitimate as a condition.")
+    ap.add_argument("--marks-every", type=float, default=240,
+                    help="seconds between the world reporting the shared surface's marks")
     ap.add_argument("--web-every", type=float, default=90,
                     help="seconds between real-web intrusions when --web is on")
     ap.add_argument("--tag", default="stream")
@@ -197,6 +203,9 @@ def main():
 
     client = Client(model=args.model)
     streams = [Stream(i, args) for i in range(args.creatures)]
+    surf = surface_mod.Surface(os.path.join(args.rundir, "surface.jsonl"))
+    for s in streams:
+        s.surface = surf
     stop = {"now": False}
     signal.signal(signal.SIGTERM, lambda *_: stop.update(now=True))
     signal.signal(signal.SIGINT, lambda *_: stop.update(now=True))
@@ -209,9 +218,21 @@ def main():
     t0 = time.time()
     last_world = 0.0
     last_web = 0.0
+    last_marks = 0.0
     try:
         while not stop["now"]:
             # the world interrupts only when it has actually changed, and not too often
+            if time.time() - last_marks >= args.marks_every:
+                for s in streams:
+                    line = s.surface.render(s.name) if s.surface else None
+                    if line:
+                        s.last_world = line
+                        s.readable.write("\n" + line + "\n"); s.readable.flush()
+                        s.text_log.write("\n" + line + "\n"); s.text_log.flush()
+                        s.log.write(json.dumps({"breath": s.breaths, "creature": s.name,
+                                                "world": line, "source": "surface",
+                                                **s.body.state()}) + "\n"); s.log.flush()
+                last_marks = time.time()
             if args.web and time.time() - last_web >= args.web_every:
                 for s in streams:
                     line = web.as_noticed()

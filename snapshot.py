@@ -91,8 +91,12 @@ def build(rundir, stream_n=30):
     mtime = mtime_of(rundir, rows)
     # the continuous stream, for the terminal view: total length plus a tail, so the
     # page can type out only what is new since it last looked
+    # the terminal shows ONE mind, not an interleaving of several
+    first = creatures[0] if creatures else None
     full = ""
     for r in rows:
+        if first and r.get("creature") != first:
+            continue
         t = (r.get("thought") or "").strip()
         if t:
             full += (" " if full else "") + t

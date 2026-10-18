@@ -94,6 +94,36 @@ collapses (loops, or templates), and Qwen3.5-9B produced 8 duplicates and 9 empt
 of 30 while costing 3.4 times more. Cost at study scale is about $0.01 per creature for a 20 day
 run.
 
+## Body, v2
+
+The creature has homeostatic drives and interoception, not a clock.
+
+- **energy** falls with time awake and faster when producing a lot of thought
+- **comfort** is pulled by the real hour, so night is cold
+- **stimulation** is the boredom variable, and it is coupled to what the creature does:
+  novel *world* input pays it back, repeating yourself costs extra
+- interoception is graded, so it reports a value ("I am a little tired") rather than one of
+  four fixed moods
+
+Boredom is the engine, so it has a consequence: when the room stops paying, the creature
+turns inward and starts recalling. That recall is logged per tick (`recall_hits`,
+`recall_sample`) because it happens in the prompt, not in the output.
+
+**A bug with a lesson.** The first version coupled stimulation to the novelty of the
+creature's *own thought*. Because it fabricates constantly, every fabrication was novel, so
+its own inventions paid its boredom back and the drive never fired once in 30 ticks. Boredom
+is a response to the environment, so novelty is measured against the world's observation
+instead. With that fixed, stimulation falls 0.53 to 0.02 and boredom fires at tick 14, and
+recall fires with it, which is the designed loop finally closing.
+
+## Corrections are off by default
+
+Both designs for giving the oracle teeth are measured harmful and disabled:
+prose corrections get imitated (the model wrote "there is no window", denying a real
+object), and a structural ledger line teaches a notation the creature then generates itself
+(`GREEN = {cup, door, green leaves, tree}`). Neither reduces invention. Detection stays on,
+because measuring fabrication is useful; correcting it is not.
+
 ## Not here yet
 
 - Actions, and the refusal mechanism that makes the oracle bind

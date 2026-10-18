@@ -56,13 +56,16 @@ class Creature:
             # frozen and the test measures the freeze rather than the creature.
             self.world.offset = 0.0
         self.clock_per_tick = args.interval
-        self.mem = mind.Memory(os.path.join(args.outdir, f"{self.name}.db"))
+        self.mem = mind.Memory(os.path.join(getattr(args, "rundir", args.outdir),
+                                            f"{self.name}.db"))
         self.prev_thoughts = []           # self-view: thoughts only, bounded
         self.rows = []
         self.slept = 0
         self.oracle_rejections = 0
         self.invention_ticks = 0
         self.pending_correction = None
+        self.last_rep = 0.0
+        self.prev_obs = ""
 
     def tick(self, n, client):
         w = self.world
@@ -70,14 +73,28 @@ class Creature:
         if self.args.rate == "fast":
             w.offset += self.clock_per_tick        # advance the virtual clock
         ts = self.world.now().strftime("%H:%M")
-        self.body.step(thought_chars=len(self.prev_thoughts[-1]) if self.prev_thoughts else 0)
         obs = w.observe(self.body)
+        # Drive the body from the world, not from the creature's own text.
+        #
+        # First attempt used novelty of *its own thought*, and that is a bug with a
+        # lesson: the creature fabricates constantly (68% of ticks assert something
+        # the world lacks), and every fabrication is novel, so its own inventions
+        # paid its boredom back and the drive never fired. Boredom is a response to
+        # the *environment* having little useful information, so novelty is measured
+        # against the world's observation instead.
+        wnov = 1.0 - mind.overlap(self.prev_obs, obs) if self.prev_obs else 0.5
+        self.body.step(dt_minutes=float(self.clock_per_tick) / 60.0,
+                       thought=self.prev_thoughts[-1] if self.prev_thoughts else "",
+                       novelty=wnov, hour=self.world.now().hour)
+        self.prev_obs = obs
         if self.pending_correction:
             obs = obs + " " + self.pending_correction
             self.pending_correction = None
         obs_line = f"[{n} {ts}] {obs}"
         hits = []
-        if self.args.memory == "on" and self.body.bored:
+        # boredom is the engine of the whole design, so it has to have a consequence:
+        # when the room stops paying, the creature turns inward and starts recalling.
+        if self.body.bored and self.args.memory != "off":
             hits = self.mem.recall(obs[:200], limit=2)
         prompt = mind.compose(self.prev_thoughts[-mind.WINDOW:] if mind.WINDOW else [],
                               obs_line, hits)
@@ -85,6 +102,7 @@ class Creature:
         thought = clean(raw)
         audit = w.audit(thought)
         rep = mind.overlap(self.prev_thoughts[-1] if self.prev_thoughts else "", thought)
+        self.last_rep = rep
         stance = ("empty" if not thought else
                   "comment" if COMMENT.search(thought) else
                   "template" if TEMPLATE.search(thought) else
@@ -123,6 +141,7 @@ class Creature:
                "invented_refs": audit["invented_refs"], "n_invented_refs": audit["n_invented_refs"],
                "third_person": audit["third_person"],
                "oracle_rejected": filter_reject, **self.body.state(),
+               "recall_hits": len(hits), "recall_sample": (hits[0][:120] if hits else None),
                "mem_size": self.mem.pressure(), "retained": bool(mid),
                "usage": usage}
         self.rows.append(row)
@@ -187,15 +206,21 @@ def main():
     ap.add_argument("--outdir", default=os.path.expanduser("~/creature/runs"))
     ap.add_argument("--sleep-mem", type=int, default=120)
     ap.add_argument("--sleep-rep", type=float, default=0.55)
-    ap.add_argument("--memory", choices=["on", "off"], default="off",
-                    help="recall into the prompt; off isolates the Phase 1 stance/repetition test")
+    ap.add_argument("--memory", choices=["on", "off"], default="on",
+                    help="recall into the prompt, which the boredom drive gates. "
+                         "This IS the designed mechanism: when the room stops paying, "
+                         "the creature turns inward. 'off' disables it as a control.")
     ap.add_argument("--oracle-filter", dest="oracle_filter", action="store_true", default=False,
                     help="a thought asserting facts the world lacks does not enter its history. "
                          "Measured: this prunes the novel content and keeps the flat, so it "
                          "accelerates monotony. Off by default, available as a variable.")
     ap.add_argument("--no-oracle-filter", dest="oracle_filter", action="store_false")
     ap.add_argument("--oracle-contradict", dest="oracle_contradict", action="store_true",
-                    default=True, help="the world refuses fabricated objects out loud")
+                    default=False,
+                    help="the world refuses fabricated objects out loud. MEASURED HARMFUL: "
+                         "prose corrections get imitated (including denials of real objects), "
+                         "and a structural ledger line teaches the creature a notation it then "
+                         "starts generating itself. It does not reduce invention either way.")
     ap.add_argument("--no-oracle-contradict", dest="oracle_contradict", action="store_false")
     ap.add_argument("--drop-comment", dest="drop_comment", action="store_true", default=True,
                     help="commentary thoughts are logged but do not enter the self-view")
@@ -207,6 +232,7 @@ def main():
     stamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
     base = os.path.join(args.outdir, f"{args.tag}-{stamp}")
     os.makedirs(base, exist_ok=True)
+    args.rundir = base        # a run's memory belongs to that run, not to the outdir
     jsonl = open(os.path.join(base, "ticks.jsonl"), "w")
     transcript = open(os.path.join(base, "transcript.txt"), "w")
 

@@ -74,18 +74,38 @@ SOURCES = [
 
 _cache: dict[str, bytes] = {}
 
+# Wikimedia throttles aggressive requesters with HTTP 429. The polite pattern is
+# few, bunched requests. We pace every wiki API call and honour 429 with a long
+# sleep instead of hammering through the backoff.
+_LAST_WIKI = [0.0]
+WIKI_MIN_INTERVAL = 0.6
 
-def fetch(url: str, tries: int = 4) -> bytes | None:
+
+def fetch(url: str, tries: int = 5) -> bytes | None:
     if url in _cache:
         return _cache[url]
+    is_wiki = "/w/api.php" in url
     last = None
     for i in range(tries):
+        if is_wiki:
+            gap = time.time() - _LAST_WIKI[0]
+            if gap < WIKI_MIN_INTERVAL:
+                time.sleep(WIKI_MIN_INTERVAL - gap)
+            _LAST_WIKI[0] = time.time()
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
             with urllib.request.urlopen(req, timeout=45) as r:
                 data = r.read()
             _cache[url] = data
             return data
+        except urllib.error.HTTPError as e:
+            last = e
+            if e.code == 429:
+                sys.stderr.write("    429 rate-limited; cooling off 25s\n")
+                sys.stderr.flush()
+                time.sleep(25)
+            else:
+                time.sleep(1.5 * (i + 1))
         except Exception as e:  # noqa: BLE001
             last = e
             time.sleep(1.5 * (i + 1))
@@ -170,7 +190,10 @@ def gutenberg_ids(limit: int) -> list[tuple[str, str]]:
 
 def harvest_gutenberg(limit: int, cap_bytes: int) -> list[dict]:
     recs = []
-    for gid, label in gutenberg_ids(limit):
+    ids = gutenberg_ids(limit)
+    sys.stderr.write(f"  gutenberg: {len(ids)} ids\n")
+    sys.stderr.flush()
+    for gi, (gid, label) in enumerate(ids):
         body = None
         url = None
         for cand in (f"https://www.gutenberg.org/cache/epub/{gid}/pg{gid}.txt",
@@ -194,6 +217,9 @@ def harvest_gutenberg(limit: int, cap_bytes: int) -> list[dict]:
         recs.append(dict(path=path, source="project-gutenberg", source_id=gid,
                          title=title, author=author, url=url, license="Public domain (US)",
                          text=text, boilerplate_stripped=stripped))
+        if gi % 10 == 0:
+            sys.stderr.write(f"    gutenberg {gi}/{len(ids)} {gid} {label[:50]}\n")
+            sys.stderr.flush()
     return recs
 
 
@@ -206,7 +232,7 @@ def category_titles(host: str, seed_cats: list[str], per_cat: int,
     level = 0
     while queue and len(titles) < cap and level <= depth:
         nxt = []
-        for cat in queue:
+        for k, cat in enumerate(queue):
             if cat in visited or len(titles) >= cap:
                 continue
             visited.add(cat)
@@ -223,52 +249,82 @@ def category_titles(host: str, seed_cats: list[str], per_cat: int,
                         break
                 elif mem.get("ns") == 14:
                     nxt.append(t)
+            if k % 25 == 0:
+                sys.stderr.write(f"    walk L{level} cat {k}/{len(queue)} "
+                                 f"titles={len(titles)} next={len(nxt)}\n")
+                sys.stderr.flush()
         queue = nxt
         level += 1
+    sys.stderr.write(f"  walk done: {len(titles)} titles, {len(visited)} categories visited\n")
+    sys.stderr.flush()
     return titles[:cap]
 
 
-def extract_one(host: str, title: str) -> tuple[str, str] | None:
-    """One title per request: prop=extracts only materialises a single page's
-    extract when the request is a cache miss, so batched calls silently return
-    empty strings for all but one page. exlimit=1 is the reliable form."""
-    d = api(host, {"action": "query", "prop": "extracts", "explaintext": "1",
-                   "exlimit": "1", "redirects": "1", "titles": title})
-    if not d:
-        return None
-    for pg in d.get("query", {}).get("pages", []):
-        if pg.get("missing"):
-            return None
-        txt = pg.get("extract") or ""
-        if txt:
-            return (pg.get("title", title), txt)
-    return None
+def extract_batch(host: str, titles: list[str], batch: int = 20) -> list[tuple[str, str]]:
+    """Batched lead-section extracts (exintro=1, explaintext=1, exlimit=20).
 
-
-def extract_batch(host: str, titles: list[str], workers: int = 4) -> list[tuple[str, str]]:
-    from concurrent.futures import ThreadPoolExecutor
+    Batching is only honoured by the TextExtracts extension when exintro is set
+    (a full-article extract is materialised one page per cache-miss request, so
+    batched full extracts come back empty for all but one title). Intro text is
+    a few hundred words of clean encyclopedic prose — an appropriate register for
+    the corpus and 20x fewer requests than per-title fetches, which is also what
+    keeps us inside Wikimedia's rate limits.
+    """
     out: list[tuple[str, str]] = []
-    done = 0
-    with ThreadPoolExecutor(max_workers=workers) as ex:
-        for res in ex.map(lambda t: extract_one(host, t), titles):
-            done += 1
-            if done % 200 == 0:
-                sys.stderr.write(f"    fetched {done}/{len(titles)}\n")
-            if res:
-                out.append(res)
+    for i in range(0, len(titles), batch):
+        chunk = titles[i:i + batch]
+        d = api(host, {"action": "query", "prop": "extracts", "explaintext": "1",
+                       "exintro": "1", "exlimit": str(len(chunk)), "redirects": "1",
+                       "titles": "|".join(chunk)})
+        if i % 200 == 0:
+            sys.stderr.write(f"    extracts {i}/{len(titles)}\n")
+            sys.stderr.flush()
+        if not d:
+            continue
+        for pg in d.get("query", {}).get("pages", []):
+            if pg.get("missing"):
+                continue
+            txt = pg.get("extract") or ""
+            if txt.strip():
+                out.append((pg.get("title", ""), txt))
+    return out
+
+
+def extract_single(host: str, titles: list[str], pause: float = 0.4) -> list[tuple[str, str]]:
+    """Full-article extracts, one title per request (exlimit=1). Slower and more
+    requests, but Wikisource texts (poems, essays, speeches) have no lead section,
+    so batched intro extraction returns nothing for them."""
+    out: list[tuple[str, str]] = []
+    for i, title in enumerate(titles):
+        d = api(host, {"action": "query", "prop": "extracts", "explaintext": "1",
+                       "exlimit": "1", "redirects": "1", "titles": title})
+        if i % 50 == 0:
+            sys.stderr.write(f"    extracts {i}/{len(titles)}\n")
+            sys.stderr.flush()
+        if d:
+            for pg in d.get("query", {}).get("pages", []):
+                txt = pg.get("extract") or ""
+                if txt.strip() and not pg.get("missing"):
+                    out.append((pg.get("title", title), txt))
+        time.sleep(pause)
     return out
 
 
 def harvest_mediawiki(host: str, source: str, seed_cats: list[str], per_cat: int,
-                      depth: int, cap: int, min_words: int) -> list[dict]:
+                      depth: int, cap: int, min_words: int,
+                      intro: bool = True) -> list[dict]:
     titles = category_titles(host, seed_cats, per_cat, depth, cap)
     sys.stderr.write(f"  {source}: {len(titles)} candidate titles\n")
+    sys.stderr.flush()
+    pairs = extract_batch(host, titles) if intro else extract_single(host, titles)
     recs = []
-    for title, txt in extract_batch(host, titles):
+    for title, txt in pairs:
         if wc(txt) < min_words:
             continue
-        low = txt[:120].lower()
+        low = txt[:200].lower()
         if "may refer to:" in low or "topics referred to by the same term" in txt.lower():
+            continue
+        if txt.count("{{") > 3 or txt.count("}}") > 3:   # unexpanded template remnants
             continue
         text = normalise(txt)
         path = os.path.join("text", source.split("-")[0], slugify(title) + ".txt")
@@ -278,7 +334,6 @@ def harvest_mediawiki(host: str, source: str, seed_cats: list[str], per_cat: int
                          license=("CC BY-SA 4.0" if source.startswith("wikipedia")
                                   else "CC BY-SA 4.0 / public domain"),
                          text=text, boilerplate_stripped=False))
-        time.sleep(0.02)
     return recs
 
 
@@ -350,11 +405,12 @@ def main() -> int:
     if args.source in ("all", "wikipedia"):
         sys.stderr.write("wikipedia: walking categories...\n")
         recs += harvest_mediawiki("en.wikipedia.org", "wikipedia-en", WIKI_SEEDS,
-                                 per_cat=300, depth=2, cap=int(2500 * s), min_words=120)
+                                 per_cat=300, depth=2, cap=int(3000 * s), min_words=120)
     if args.source in ("all", "wikisource"):
         sys.stderr.write("wikisource: walking categories...\n")
         recs += harvest_mediawiki("en.wikisource.org", "wikisource-en", WS_SEEDS,
-                                 per_cat=200, depth=2, cap=int(500 * s), min_words=120)
+                                 per_cat=200, depth=2, cap=int(400 * s), min_words=120,
+                                 intro=False)
 
     recs, dd = dedupe(recs)
     write_corpus(recs)

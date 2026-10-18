@@ -19,38 +19,86 @@ CAP_CHARS = int(os.environ.get("SELF_CAP", "600"))     # hard cap on the self-vi
 
 
 class Body:
-    """Homeostatic variables. Nothing here is an instruction (doc 05)."""
+    """Homeostatic variables. Nothing here is an instruction (doc 05).
+
+    v2, after review. v1 decayed on a metronome: energy fell by a constant per
+    tick no matter what happened, comfort wobbled randomly, and the boredom
+    variable was computed and then used for nothing. It was a clock, not a
+    metabolism, and its only report was one of four fixed phrases, so the creature
+    could not feel a gradient.
+
+    Now:
+    - energy falls with time awake and faster when thinking a lot
+    - comfort is pulled by the time of day, so night is cold
+    - **stimulation is coupled to what the creature actually does.** Novel thought
+      relieves boredom; repeating itself deepens it. That is the causal loop the
+      design always claimed, and it was missing.
+    - interoception is graded, so the body reports a value rather than a mood
+    """
 
     def __init__(self, seed=0):
         self.rng = random.Random(seed)
         self.energy = 0.72
         self.comfort = 0.68
-        self.stimulation = 0.55        # the boredom variable
+        self.stimulation = 0.55
+        self.awake_minutes = 0.0
+        self.deficits_met = 0
 
-    def step(self, thought_chars=0):
-        self.energy = max(0.02, self.energy - 0.010 - thought_chars / 40000.0)
-        self.comfort = min(1.0, max(0.05, self.comfort + self.rng.uniform(-0.03, 0.03)))
-        # a dull world erodes stimulation; producing a thought is itself mildly stimulating
-        self.stimulation = max(0.02, self.stimulation - 0.020 + min(0.010, thought_chars / 8000.0))
+    @staticmethod
+    def _clamp(v, lo=0.02, hi=1.0):
+        return max(lo, min(hi, v))
+
+    def step(self, dt_minutes=10.0, thought="", novelty=0.5, hour=12):
+        self.awake_minutes += dt_minutes
+        # energy: time awake, plus a small extra cost for producing a lot of thought
+        self.energy = self._clamp(self.energy
+                                  - 0.0085 * (dt_minutes / 10.0)
+                                  - min(0.004, len(thought) / 30000.0))
+        # comfort: the room is comfortable, the night is not. pulled toward a
+        # target set by the real hour rather than random-walked.
+        target = 0.55 if (hour < 6 or hour >= 21) else 0.72
+        self.comfort = self._clamp(self.comfort + 0.06 * (target - self.comfort)
+                                   + self.rng.uniform(-0.012, 0.012))
+        # stimulation: the room gives nothing, so it falls. Novel thought is the
+        # only thing that pays it back, and repeating yourself costs extra.
+        base = -0.016 * (dt_minutes / 10.0)
+        reward = 0.030 * (novelty - 0.5)
+        self.stimulation = self._clamp(self.stimulation + base + reward)
+
+    # -------------------------------------------------------- interoception
 
     @property
     def bored(self):
-        return self.stimulation < 0.25
+        return self.stimulation < 0.28
+
+    @property
+    def tired(self):
+        return self.energy < 0.35
 
     def say(self):
-        p = []
-        p.append("my body is heavy and slow" if self.energy < 0.4 else "my body is fine, not tired")
-        p.append("the cold is in my hands" if self.comfort < 0.45
-                 else "the room is a comfortable temperature")
-        if self.stimulation < 0.15:
-            p.append("there is nothing here that wants anything from me")
-        elif self.stimulation < 0.35:
-            p.append("I have run out of things to look at")
-        return ". ".join(p) + "."
+        """Graded, first person, flat. A value, not a mood."""
+        b = []
+        e = self.energy
+        b.append("I am very tired" if e < 0.25 else
+                 "I am tired" if e < 0.45 else
+                 "I am a little tired" if e < 0.62 else "I am not tired")
+        c = self.comfort
+        b.append("the cold is in my hands" if c < 0.4 else
+                 "there is a chill in the room" if c < 0.55 else
+                 "I am neither warm nor cold" if c < 0.75 else "the room is warm")
+        s = self.stimulation
+        b.append("there is nothing here that wants anything from me" if s < 0.15 else
+                 "I have run out of things to look at" if s < 0.3 else
+                 "I have looked at all of this before" if s < 0.45 else
+                 "something in the room still holds me" if s < 0.65 else
+                 "the room still has my attention")
+        return ". ".join(b) + "."
 
     def state(self):
         return {"energy": round(self.energy, 3), "comfort": round(self.comfort, 3),
-                "stimulation": round(self.stimulation, 3), "bored": self.bored}
+                "stimulation": round(self.stimulation, 3),
+                "awake_minutes": round(self.awake_minutes, 1),
+                "bored": self.bored, "tired": self.tired}
 
 
 WORDS = re.compile(r"[a-z']+")
@@ -157,14 +205,19 @@ def compose(prev_thoughts, observation, memory_hits=None):
       continues the *label* and starts answering it, which seeds a quiz template.
     - Level 0/1 self-view only, hard capped. Never the full log (HANDOFF rule 9).
     """
-    lines = []
+    mem_line = ""
     if memory_hits:
-        lines.append("something surfaces, and I do not know from where: "
-                     + " ".join(memory_hits)[:240])
-    lines.extend(t for t in prev_thoughts if t)
-    lines.append(observation)
-    joined = "\n".join(lines)
-    return joined[-CAP_CHARS - 400:] if len(joined) > CAP_CHARS + 400 else joined
+        mem_line = ("something surfaces, and I do not know from where: "
+                    + " ".join(memory_hits)[:240])
+    hist = [t for t in prev_thoughts if t]
+    # Budget the parts explicitly. Clipping the tail of the whole thing silently
+    # deleted the memory line, because it is assembled first and the observation
+    # alone can be 400 characters. The self-view is what gets shortened, never the
+    # recall and never the observation.
+    budget = max(160, CAP_CHARS - len(mem_line) - len(observation) - 40)
+    hist_txt = "\n".join(hist)[-budget:] if hist else ""
+    parts = [p for p in (mem_line, hist_txt, observation) if p]
+    return "\n".join(parts)
 
 
 def sleeping(body, mem, recent_overlap, args):

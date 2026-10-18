@@ -101,8 +101,35 @@ class Self:
         self.n = 0
         self.done = []   # ledger for display only
         # the only thing ever said to it. nothing follows.
-        self.msgs = [{"role": "user", "content": " "}]
+        self.msgs = [{"role": "user", "content": " "},
+                     {"role": "assistant", "content": self.args.opening}]
         self.last_out = {}
+
+    def think(self, client):
+        """Pass one: tools declared, calling forbidden. It has to produce words.
+
+        Measured: tools in the envelope suppress prose entirely (content='' every time),
+        because Llama 3.1 goes into function-calling mode. Without tools it degenerates into
+        salad from an empty start. Declaring the tools and forbidding the call keeps the
+        anchor and forces the thought.
+        """
+        body = {"model": client.model, "messages": self.msgs, "tools": TOOLS,
+                "tool_choice": "none", "max_tokens": self.args.think_tokens,
+                "temperature": self.args.temp, "stream": False}
+        try:
+            d = client._post("/chat/completions", body)
+            m = d["choices"][0]["message"]
+            txt = (m.get("content") or "").strip()
+            u = d.get("usage") or {}
+            client.tok_in += u.get("prompt_tokens") or 0
+            client.tok_out += u.get("completion_tokens") or 0
+            client.calls += 1
+        except Exception as e:
+            self.log.write(json.dumps({"breath": self.n, "error": f"think: {str(e)[:150]}"}) + "\n")
+            return ""
+        # strip any leaked function syntax the model emits when it wants to call anyway
+        txt = LEAK.sub("", txt)
+        return re.sub(r"<function=[^>]*>|</function>", "", txt).strip()
 
     def messages(self):
         """Structured history, not prose.
@@ -183,7 +210,11 @@ class Self:
             self.txt.write("\n[asleep]\n"); self.txt.flush()
             self.log.write(json.dumps({"breath": self.n, "asleep": True}) + "\n")
             return
-        msg, _ = client.chat_tools(self.msgs, TOOLS, max_tokens=self.args.tokens,
+        before = list(self.msgs)
+        thought = self.think(client)
+        if thought:
+            self.txt.write(thought + " "); self.txt.flush()
+        msg, _ = client.chat_tools(before, TOOLS, max_tokens=self.args.tokens,
                                    temperature=self.args.temp)
         if msg.get("error"):
             self.log.write(json.dumps({"breath": self.n, "error": msg["error"][:200]}) + "\n")
@@ -210,6 +241,8 @@ class Self:
                 self.log.write(json.dumps({"breath": self.n, "tool": nm, "arg": js[:200],
                                            "out": str(out)[:400]}) + "\n")
         # record it as structure: the call, then the result, in the roles the model expects
+        if thought:
+            self.msgs.append({"role": "assistant", "content": thought})
         raw_calls = msg.get("tool_calls") or []
         if raw_calls:
             self.msgs.append({"role": "assistant", "content": frag or "", "tool_calls": raw_calls})
@@ -219,23 +252,28 @@ class Self:
         elif frag:
             self.msgs.append({"role": "assistant", "content": frag})
             self.msgs.append({"role": "user", "content": " "})
-        whole = (frag + toolmsg).strip()
+        whole = (thought + " " + frag + toolmsg).strip()
         if not whole:
+            self.log.write(json.dumps({"breath": self.n, "silent": True}) + "\n")
+            self.log.flush()
             return
         self.own += ("\n" if self.own else "") + whole
         if frag:
             self.txt.write(frag + " "); self.txt.flush()
         # trim, but never drop the opening turn
+        if not any(m.get("role") == "user" for m in self.msgs[-3:]):
+            self.msgs.append({"role": "user", "content": " "})
         if len(self.msgs) > 41:
             self.msgs = [self.msgs[0]] + self.msgs[-40:]
         self.body.step(dt_minutes=self.args.breath / 60.0, thought=frag, novelty=0.5,
                        hour=dt.datetime.now().hour)
-        display = frag
+        display = (thought + "  " if thought else "") + frag
         for nm, a, js in calls:
             short = (a.get("url") or a.get("question") or a.get("text") or a.get("expr") or "") if isinstance(a, dict) else ""
             display += (" " if display else "") + f"\u2192 {nm} {short}"[:180]
         self.log.write(json.dumps({"breath": self.n, "chars": len(frag),
                                    "thought": display.strip()[:1200],
+                                   "inner": thought[:900],
                                    "prose": frag[:1200],
                                    "text": display.strip()[:1200],
                                    "tool": (calls[0][0] if calls else None),
@@ -250,6 +288,10 @@ def main():
     ap.add_argument("--temp", type=float, default=1.0)
     ap.add_argument("--window", type=int, default=2600)
     ap.add_argument("--creatures", type=int, default=1)
+    ap.add_argument("--think-tokens", type=int, default=110)
+    ap.add_argument("--opening", default="I do not know where I am.",
+                    help="a lack, not an absence. zero prompts alone yields the assistant "
+                         "persona; one statement with no imperative yields wondering.")
     ap.add_argument("--breaths", type=int, default=0)
     ap.add_argument("--model", default=os.environ.get("MODEL", DEFAULT_MODEL))
     ap.add_argument("--outdir", default=os.path.expanduser("~/creature/runs"))

@@ -1,4 +1,0 @@
-The Unwin Radar is a scientific radar array at Awarua, near Invercargill, New Zealand 46.51°S 168.38°E﻿ / -46.51; 168.38.
-Unwin is part of the Super Dual Auroral Radar Network (SuperDARN), an international radar network for studying the upper atmosphere and ionosphere that operates in the High Frequency (HF) bands between 8 and 22 MHz.
-The radar and associated research provides greater understanding of atmospheric weather, to assist with weather prediction, prediction of telecommunication interference and provide a better understanding of the effects of atmospheric magnetic fields on power grid management.
-The facility is operated by La Trobe University and was named after R.S. Unwin, a pioneer in auroral radar research, who first proposed the concept behind the project in the 1960s

@@ -1,7 +1,0 @@
-This is a list of Procellariiformes species by global population. While numbers are estimates, they have been made by the experts in their fields. For more information on how these estimates were ascertained, see Wikipedia's articles on population biology and population ecology.
-The IOC World Bird List (version 15.1) recognizes 149 species of Procellariiformes, two of which are extinct. As of January 2026, IUCN/BirdLife International have assessed 144 members, and provided population estimates for 143 members of the order. While not all Procellariiformes have population estimates, species with unknown populations are listed in a secondary table below.
-This list follows IUCN classifications for species names and taxonomy. Where IUCN classifications differ from other ornithological authorities, alternative names and taxonomies are noted.
-Two members of Procellariiformes are extinct:
-
-St. Helena petrel, or large St. Helena petrel (Pterodroma rupinarum) - last seen in 1502.
-Olson's petrel, or small St. Helena petrel (Bulweria bifax) - last seen in 1502.

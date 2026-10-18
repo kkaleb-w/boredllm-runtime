@@ -1,3 +1,0 @@
-An ion drift meter is a device used to measure the velocity of individual ions in the area of a spacecraft. This information can then be used to calculate the ion drift in the space surrounding the instrument as well as the strength of an electric field present, provided that the magnetic field strength has been determined using a magnetometer.
-The device itself works by allowing ions to pass through an opening at the front of the instrument and measuring the currents produced by the impacts of ions in different locations on a grid at the back. The trajectories of the ions can then be determined.
-Ion drift meters have been used on several spacecraft including the Dynamics Explorer, CHAMP and Ionospheric Connection Explorer.

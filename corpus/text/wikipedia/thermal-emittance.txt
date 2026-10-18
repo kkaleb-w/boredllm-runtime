@@ -1,9 +1,0 @@
-Thermal emittance or thermal emissivity (
-
- ε
-
- {\displaystyle \varepsilon }
-
-) is the ratio of the radiant emittance of heat of a specific object or surface to that of a standard black body. Emissivity and emittivity are both dimensionless quantities given in the range of 0 to 1, representing the comparative/relative emittance with respect to a blackbody operating in similar conditions, but emissivity refers to a material property (of a homogeneous material), while emittivity refers to specific samples or objects.
-For building products, thermal emittance measurements are taken for wavelengths in the infrared. Determining the thermal emittance and solar reflectance of building materials, especially roofing materials, can be very useful for reducing heating and cooling energy costs in buildings. Combined index Solar Reflectance Index (SRI) is often used to determine the overall ability to reflect solar heat and release thermal heat. A roofing surface with high solar reflectance and high thermal emittance will reflect solar heat and release absorbed heat readily. High thermal emittance material radiates thermal heat back into the atmosphere more readily than one with a low thermal emittance. In common construction applications, the thermal emittance of a surface is usually higher than 0.8–0.85.
-High thermal emittance materials are essential to passive daytime radiative cooling, which uses surfaces high in thermal emittance and solar reflectance to lower surface temperatures by dissipating heat to outer space. It has been proposed as a solution to energy crises and global warming.

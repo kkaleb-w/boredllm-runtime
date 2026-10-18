@@ -1,4 +1,0 @@
-Bayshore Resilience, also known as Bashor or Bashore Resilience, is a test to determine the ratio of the energy released in deformation recovery to the energy that caused the deformation, or an estimate of the energy-absorbing statistics of a material in reference to another material. A ratio of 100 percent indicates a completely elastic pair of materials where a ratio of 0 percent indicates a pair of completely energy-absorbent materials.
-The ratio is determined by dropping a weighted ball onto the material to be measured, and then taking the ratio of the rebound height to the initial height. The ratio is also an indicator of hysteretic energy loss.
-The test for Bayshore Resilience is used to test the elasticity of polyurethanes.
-Under National Federation of State High School Associations regulations, the material on the edge of a basketball backboard must meet a Bayshore Resilience number of 20 to 30.

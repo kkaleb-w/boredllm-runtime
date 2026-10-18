@@ -1,4 +1,0 @@
-The double-nail illusion is a multi-modal illusion in which two similar physical objects, which are located one behind the other in depth, appear visually to be next to each other (at a depth about halfway between the two physically present objects) instead of one being directly behind the other.
-This observation cannot be explained on the basis of classical theories of binocular depth perception (Krol 1982, p. 28-33), but it can be explained by binocular ghosts in a neural network.
-The basic setup was mentioned in 1950 by Rønne and rediscovered and systematically investigated in 1978 by Krol, see Research history.
-The conditions for the illusion and the main observations are described under Basic double-nail illusion, under Measurements of ghost images and under Variations. Related observations are listed under Edges and surfaces.

@@ -1,8 +1,0 @@
-Physical crystallography before X-rays describes how physical crystallography developed as a science up to the discovery of X-rays by Wilhelm Conrad Röntgen in 1895. In the period before X-rays, crystallography can be divided into three broad areas: geometrical crystallography culminating in the discovery of the 230 space groups in 1891–1894, chemical crystallography and physical crystallography.
-Physical crystallography is concerned with the physical properties of crystals, such as their optical, electrical, magnetic, thermal, and mechanical properties.
-
-The interaction between crystals and electromagnetic radiation is covered in the following sections: double refraction, rotary polarization, conical refraction, absorption and pleochroism, luminescence, reflection from opaque materials, and infrared optics.
-The effect of electricity and magnetism on crystals is covered in: electrical conduction, magnetic properties, and dielectric properties.
-The effect of temperature change on crystals is covered in: thermal expansion, thermal conduction, thermoelectricity, and pyroelectricity.
-The effect of mechanical force on crystals is covered in: elasticity, photoelasticity, and piezoelectricity.
-The study of crystals in the time before X-rays was focused more on their geometry and mathematical analysis than their physical properties. Unlike geometrical crystallography, the history of physical crystallography has no central story, but is a collection of developments in different areas.

@@ -1,5 +1,0 @@
-Planet Patrol is a NASA citizen science project available in Zooniverse and aimed at discovering new exoplanets with data from the TESS telescope.
-The project is built on results produced by a computer algorithm. The algorithm measures the center-of-light of the images and automatically compares it to the catalog position of the corresponding star.
-The main difference with Planet Hunters is that Planet Patrol looks at objects that represent a detected planet candidate in TESS data, whereas Planet Hunters searches through all the stars in the TESS databases and asks humans to find such candidates.
-As of September 2020, there were 1370 volunteers and 72,938 classifications have been done.
-The images representing a possible exoplanet transit show a single bright source near the middle of the image with a dot at the center.

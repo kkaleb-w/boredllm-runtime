@@ -1,9 +1,0 @@
-The styx rule, also known as Lipscomb's styx rule, can be used to calculate the structures of boranes. It was developed by William Lipscomb in 1954. The rule defines boranes to have four types of bonds besides the terminal B-H bonds:
-
-Where:
-
-B-H-B bonds are 3c-2e bonds, taking up three orbitals and two valence electrons.
-B-B-B bonds are 3c-2e bonds, taking up three orbitals and two valence electrons.
-B-B bonds are 2c-2e bonds, taking up two orbitals and two valence electrons.
-The -BH2 group consists of an extra B-H bond formed on the BH units and is thus considered to take up two orbitals and two valence electrons.
-The bonding structure deduced by the styx rule doesn't reflect the true symmetry of boranes. More modern methods that more accurately reflect the bonding nature of boranes like Wade's rules have been developed.

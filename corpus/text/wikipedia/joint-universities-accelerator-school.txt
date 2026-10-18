@@ -1,9 +1,0 @@
-The Joint Universities Accelerator School (JUAS) is an educational program that specializes in the field of particle accelerator science and technology. Established in 1994, JUAS is a collaborative initiative involving multiple universities, research centers, and institutions. It provides advanced training in accelerator physics and engineering for graduate students and professionals. The program is hosted annually, in Archamps, near Geneva, Switzerland, under the auspices of the European Scientific Institute (ESI). Its location near the European Organization for Nuclear Research (CERN) and other major research facilities offers participants unique access to cutting-edge expertise and resources.
-JUAS originated in 1990 through a collaboration between CERN physicists, the European Synchrotron Radiation Facility (ESRF), and the Université Joseph Fourier in Grenoble, France, with support from Haute-Savoie local authorities. Since its inception, the school has trained more than 1,400 participants, creating a skilled workforce for addressing challenges in accelerator physics and technology. Alumni frequently secure positions at leading laboratories, including CERN, DESY, and Fermilab, or apply their skills in sectors such as medicine and energy. By 2024, the school had partnered with 14 universities across Europe.
-JUAS caters primarily to graduate students with a scientific background who are new to accelerator physics. The program offers two complementary five-week courses:
-
-Course 1: Focuses on the theoretical foundations of particle accelerator science.
-Course 2: Covers the technology and applications of particle accelerators.
-Participants may enroll in one or both courses, which feature interactive teaching by experts from leading institutions and hands-on learning opportunities.
-Since August 2021, JUAS has been directed by Elias Métral (CERN).
-Many of the JUAS lecturers do also lecture at the CERN Accelerator School.

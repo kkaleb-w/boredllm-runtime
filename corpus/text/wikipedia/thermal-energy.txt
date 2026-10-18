@@ -1,6 +1,0 @@
-The term "thermal energy" is often used ambiguously in physics and engineering. It can denote several different physical concepts, including:
-
-Internal energy: The energy contained within a body of matter or radiation, excluding the potential energy of the whole system.
-Heat: Energy in transfer between a system and its surroundings by mechanisms other than thermodynamic work and transfer of matter.
-The characteristic energy kBT, where T denotes temperature and kB denotes the Boltzmann constant; it is twice that associated with each degree of freedom.
-Mark Zemansky (1970) has argued that the term "thermal energy" is best avoided due to its ambiguity. He suggests using more precise terms such as "internal energy" and "heat" to avoid confusion. The term is, however, used in some textbooks.

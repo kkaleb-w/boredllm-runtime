@@ -1,5 +1,0 @@
-The Reichert value (also Reichert-Meissl number, Reichert-Meissl-Wollny value or Reichert-Meissl-Wollny number) is a value determined when examining fats and oils. The Reichert value is an indicator of how much volatile fatty acid can be extracted from a particular fat or oil through saponification. It is equal to the number of millilitres of 0.1 normal hydroxide solution necessary for the neutralization of the water-soluble volatile fatty acids distilled and filtered from 5 grams of a given saponified fat. (The hydroxide solution used in such a titration is typically made from sodium hydroxide, potassium hydroxide, or barium hydroxide.)
-This number is a useful indicator of non-fat compounds in edible fats, and is especially high in butter.
-The value is named for the chemists who developed it, Emil Reichert and Emerich Meissl.
-The Polenske value and Kirschner value are related numbers based on similar tests.
-The Reichert-Meissel value for milk ranges between 28.5 and 33.

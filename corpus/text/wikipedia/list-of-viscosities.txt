@@ -1,5 +1,0 @@
-Dynamic viscosity is a material property which describes the resistance of a fluid to shearing flows. It corresponds roughly to the intuitive notion of a fluid's 'thickness'. For instance, honey has
-a much higher viscosity than water. Viscosity is measured using a viscometer. Measured values span several orders
-of magnitude. Of all fluids, gases have the lowest viscosities, and thick liquids have the highest. There is evidence of solid flow as result of Brownian motion in condition of extremes such as high temperature, high pressure, and extremely long time scales as theorized for the motion of the Earth's solid metal core.
-The values listed in this article are representative estimates only, as they do not account for measurement uncertainties, variability in material definitions, or non-Newtonian behavior.
-Kinematic viscosity is dynamic viscosity divided by fluid mass density. This page lists only dynamic viscosity.

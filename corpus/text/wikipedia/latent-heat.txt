@@ -1,4 +1,0 @@
-Latent heat (also known as latent energy or heat of transformation) is energy released or absorbed, by a body or a thermodynamic system, during a constant-temperature process—usually a first-order phase transition, like melting or condensation.
-Latent heat can be understood as hidden energy which is supplied or extracted to change the state of a substance without changing its temperature or pressure. This includes the latent heat of fusion (solid to liquid), the latent heat of vaporization (liquid to gas) and the latent heat of sublimation (solid to gas).
-The term was introduced around 1762 by Scottish chemist Joseph Black. Black used the term in the context of calorimetry where a heat transfer caused a volume change in a body while its temperature was constant.
-In contrast to latent heat, sensible heat is energy transferred as heat, with a resultant temperature change in a body.

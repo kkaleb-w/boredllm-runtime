@@ -1,6 +1,0 @@
-Physics is a branch of science in which the primary objects of study are matter and energy. These topics were discussed across many cultures in ancient times by philosophers, but they had no means to distinguish causes of natural phenomena from superstitions.
-The Scientific Revolution of the 17th century, especially the discovery of the law of gravity, began a process of knowledge accumulation and specialization that gave rise to the field of physics.
-Mathematical advances of the 18th century gave rise to classical mechanics, and the increased use of the experimental method led to a new understanding of thermodynamics.
-In the 19th century, the basic laws of electromagnetism and statistical mechanics were discovered.
-At the beginning of the 20th century, physics was transformed by the discoveries of quantum mechanics, relativity, and atomic theory.
-Physics today may be divided loosely into classical physics and modern physics.

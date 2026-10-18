@@ -1,5 +1,0 @@
-Critical distance for an animal is the distance a human or an aggressor animal has to approach in order to trigger a defensive attack of the first animal.
-The concept was introduced by Swiss zoologist Heini Hediger in 1954, along with other space boundaries for an animal, such as flight distance (run boundary), critical distance (attack boundary), personal space (distance separating members of non-contact species, as a pair of swans), and social distance (intraspecies communication distance).
-Hediger developed and applied these distance concepts in the context of designing zoos.
-As the critical distance is smaller than the flight distance, there are only a few scenarios in the wild when the critical distance may be encroached. As an example, critical distance may be reached if an animal noticed an intruder too late or the animal was "cornered" to a place of no escape.
-Edward T. Hall, a cultural anthropologist, reasoned that in humans the flight distance and critical distance have been eliminated in human reactions, and thus proceeded to determine modified criteria for space boundaries in human interactions.

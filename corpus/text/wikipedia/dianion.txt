@@ -1,3 +1,0 @@
-A dianion is an anion with a net charge of −2. While there exist many stable molecular dianions, such as BeF42− and MgF42−, thus far no stable atomic dianion has been found: Electron shielding and other quantum mechanical effects tend to make the addition of another electron to an atomic anion unstable.
-The most heavily studied atomic dianion is H2−, usually as a short-lived resonance between an electron and a hydrogen ion. In 1976, its half-life was experimentally measured to be 23 ± 4 nanoseconds.
-In the field of physiology, molecular dianions play an important roles, such as the monohydrogen phosphate ([HPO4]2−), present at a concentration of around 1 mM in the blood and in cells, where it plays a role in pH buffering.

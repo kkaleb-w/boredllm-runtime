@@ -1,8 +1,0 @@
-Thermolabile refers to a substance which is subject to decomposition or change in response to heat. This term is often used to
-describe biochemical substances.
-For example, many bacterial exotoxins are thermolabile and can be easily inactivated by the application of moderate heat.
-Enzymes are also thermolabile and lose their activity when the temperature rises.
-Loss of activity in such toxins and enzymes is likely due to change in the three-dimensional structure of the toxin protein during exposure to heat.
-In pharmaceutical compounds, heat generated during grinding may lead to degradation of thermolabile compounds.
-This is of particular use in testing gene function. This is done by intentionally creating mutants which are thermolabile. Growth below the permissive temperature allows normal protein function, while increasing the temperature above the permissive temperature ablates activity, likely by denaturing the protein.
-Thermolabile enzymes are also studied for their applications in PCR, where thermostable enzymes are usually necessary for the reaction to proceed. Enzyme function at higher temperatures may be enhanced with trehalose, which opens up the possibility of using normally thermolabile enzymes in PCR mixes.

@@ -1,18 +1,28 @@
-/* bored - a terminal that thinks. Nothing on the page but the stream, typing itself out.
- * The stream grows forever, so the page tracks a global character index instead of
- * re-rendering. New characters queue and type out at a human rate, so you watch the
- * thought arrive rather than a paragraph appear. */
+/* bored - a terminal that thinks, and follows itself down.
+ *
+ * The stream grows forever, so the page tracks a global character index rather than
+ * re-rendering. New characters queue and type out at a human rate.
+ *
+ * Auto-scroll is sticky: it follows the newest text while you are at the bottom, and
+ * stops following the moment you scroll up to read. Scroll back down and it resumes.
+ */
 const term = document.getElementById("term");
 let shown = -1;      // global index of the last character we were told about
 let buf = "";        // on screen
 let queue = "";      // accepted but not yet typed
+let stick = true;    // follow the bottom unless the reader has scrolled up
 const MAX = 9000;
 const CPS = 55;
+const NEAR = 48;     // px from the bottom that still counts as "at the bottom"
+
+term.addEventListener("scroll", () => {
+  stick = term.scrollTop + term.clientHeight >= term.scrollHeight - NEAR;
+}, { passive: true });
 
 function paint() {
   if (buf.length > MAX) buf = "\u2026" + buf.slice(-MAX);
   term.textContent = buf;
-  window.scrollTo(0, document.body.scrollHeight);
+  if (stick) term.scrollTop = term.scrollHeight;
 }
 
 let acc = 0, last = performance.now();

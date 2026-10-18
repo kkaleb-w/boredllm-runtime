@@ -1,3 +1,0 @@
-A lime kiln is a kiln used for the calcination of limestone (calcium carbonate) to produce the form of lime called quicklime (calcium oxide). The chemical equation for this reaction is: CaCO3 + heat → CaO + CO2
-This reaction can take place at anywhere above 840 °C (1,540 °F), but is generally considered to occur at 900 °C (1,650 °F) (at which temperature the partial pressure of CO2 is 1 atmosphere), but a temperature around 1,000 °C (1,830 °F) (at which temperature the partial pressure of CO2 is 3.8 atmospheres) is usually used to make the reaction proceed quickly. Excessive temperature is avoided because it produces unreactive, "dead-burned" lime.
-Slaked lime (calcium hydroxide) can be formed by mixing quicklime with water.

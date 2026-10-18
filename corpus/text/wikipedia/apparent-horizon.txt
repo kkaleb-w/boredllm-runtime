@@ -1,3 +1,0 @@
-In general relativity, an apparent horizon is a surface that is the boundary between light rays that are directed outwards and moving outwards and those directed outward but moving inward.
-Apparent horizons are not invariant properties of spacetime, and in particular, they are distinct from event horizons. Within an apparent horizon, light does not move outward; this is in contrast with the event horizon. In a dynamical spacetime, there can be outgoing light rays exterior to an apparent horizon (but still interior to the event horizon). An apparent horizon is a local notion of the boundary of a black hole, whereas an event horizon is a global notion.
-The notion of a horizon in general relativity is subtle and depends on fine distinctions.

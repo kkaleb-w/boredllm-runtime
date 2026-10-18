@@ -1,4 +1,0 @@
-A snakebot, also referred to as a snake robot, is a biomorphic robot that resembles a snake. Snakebots have uses similar to those of certain types of soft robots.
-Snakebots can vary significantly in size and design. Their small cross-section-to-length ratios allow them to maneuver through tight spaces. Their ability to change shape allows them to traverse varied terrain.
-Snake robots are often designed by connecting multiple independent segments, which provides redundancy and enables continued operation even if some parts are damaged. Snakebots have been posited for a range of practical applications.
-A snakebot differs from a snake-arm robot in that, snakebots are usually self-contained, whereas snake-arm robots typically have mechanics remote from the arm itself, possibly connected to a larger system.

@@ -1,6 +1,0 @@
-The concept of magic numbers in the field of chemistry refers to a specific property (such as stability) for only certain representatives among a distribution of structures. It was first recognized by inspecting the intensity of mass-spectrometric signals of rare gas cluster ions. Then, the same effect was observed with sodium clusters.
-
-In case a gas condenses into clusters of atoms, the number of atoms in these clusters that are most likely to form varies between a few and hundreds. However, there are peaks at specific cluster sizes, deviating from a pure statistical distribution. Therefore, it was concluded that clusters of these specific numbers of atoms dominate due to their exceptional stability.
-One well-known example of such atomic condensation is the set of C60 , C70 and C84 fullerenes, shown in the figure on the right.
-The concept was also successfully applied to explain the mono-dispersed occurrence of thiolate-protected gold clusters; here the outstanding stability of specific cluster sizes is connected with their respective electronic configuration.
-The term magic numbers is also used in the field of nuclear physics. In this context, magic numbers refer to a specific number of protons or neutrons that forms complete nucleon shells.

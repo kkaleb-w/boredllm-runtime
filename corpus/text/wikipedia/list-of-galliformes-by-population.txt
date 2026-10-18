@@ -1,7 +1,0 @@
-This is a list of Galliformes species by global population. While numbers are estimates, they have been made by the experts in their fields. For more information on how these estimates were ascertained, see Wikipedia's articles on population biology and population ecology.
-Not all Galliformes have had their populations quantified, but species without population estimates are included in a secondary table below.
-The IOC World Bird List (version 15.1) recognizes 307 species of Galliformes, one of which is extinct. As of January 2026, the IUCN has assessed 303 of these species (excepting red grouse, chestnut-headed chachalaca, Yungas guan, and Dulit partridge).
-This list follows IUCN classifications for species names and taxonomy. Where IUCN classifications differ from other ornithological authorities, alternative names and taxonomies are noted.
-One member of Galliformes is extinct:
-
-New Zealand quail (Coturnix novaezelandiae) - last individual died in 1875.

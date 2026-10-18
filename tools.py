@@ -122,7 +122,9 @@ class Self:
                 out.append((nm, a, js))
         return out[:2]
 
-    def call(self, name, arg):
+    def call(self, name, a):
+        """args arrive as a dict from the function call, not as a JSON string."""
+        arg = a.get("url") or a.get("question") or a.get("text") or a.get("expr") or "" if isinstance(a, dict) else (a or "")
         self.used[name] = self.used.get(name, 0) + 1
         name = name.lower()
         if name == "look":
@@ -179,7 +181,7 @@ class Self:
         calls = self.calls(msg)
         toolmsg = ""
         for nm, a, js in calls:
-            out = self.call(nm, json.dumps(a))
+            out = self.call(nm, a)
             if out is not None:
                 toolmsg += f"\n{nm}({js[:100]}) -> {str(out)[:300]}"
                 self.txt.write(f"\n   [{nm}: {str(out)[:150]}]\n"); self.txt.flush()
@@ -193,8 +195,15 @@ class Self:
             self.txt.write(frag + " "); self.txt.flush()
         self.body.step(dt_minutes=self.args.breath / 60.0, thought=frag, novelty=0.5,
                        hour=dt.datetime.now().hour)
-        self.log.write(json.dumps({"breath": self.n, "chars": len(frag), "thought": frag[:1200],
-                                   "text": frag[:1200], "tool": (calls[0][0] if calls else None),
+        display = frag
+        for nm, a, js in calls:
+            short = (a.get("url") or a.get("question") or a.get("text") or a.get("expr") or "") if isinstance(a, dict) else ""
+            display += (" " if display else "") + f"\u2192 {nm} {short}"[:180]
+        self.log.write(json.dumps({"breath": self.n, "chars": len(frag),
+                                   "thought": display.strip()[:1200],
+                                   "prose": frag[:1200],
+                                   "text": display.strip()[:1200],
+                                   "tool": (calls[0][0] if calls else None),
                                    **self.body.state()}) + "\n")
         self.log.flush()
 

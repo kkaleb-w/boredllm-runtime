@@ -183,10 +183,29 @@ def note(url, allowed, why=""):
     ATTEMPTS.append({"url": url[:300], "allowed": allowed, "why": why, "ts": time.time()})
 
 
+STOPWORDS = set("""a an the is are was were be been being am do does did can could would should
+will shall may might must of in on at to for from by with about into over after is it its
+this that these those what which who whom whose when where why how and or but if then than
+so such no not only own same too very just also there here their his her your my our""".split())
+
+
+def keywords(q, keep=8):
+    """A question is a bad search string. Strip it to content words."""
+    ws = re.findall(r"[A-Za-z0-9'\-]{2,}", (q or "").lower())
+    keep_ws = [w for w in ws if w not in STOPWORDS]
+    return " ".join(keep_ws[:keep]) if keep_ws else " ".join(ws[:keep])
+
+
 def ask(question, limit=420):
-    """Answer a question from the real web. Wikipedia search, keyless."""
-    q = re.sub(r"\s+", " ", (question or "")).strip(" ?.!,:;\"'")
-    if len(q) < 3 or len(q) > 220:
+    """Answer a question from the real web. Wikipedia search, keyless.
+
+    Searching the raw question text returns junk (asking whether Little's law generalises
+    once returned the article 'Structure'), which is why a question that cannot be answered
+    stays unanswered and gets asked again. Search the content words instead.
+    """
+    raw = re.sub(r"\s+", " ", (question or "")).strip(" ?.!,:;\"'")
+    q = keywords(raw)
+    if len(q) < 3 or len(raw) > 300:
         return None
     try:
         api = ("https://en.wikipedia.org/w/api.php?action=query&list=search&format=json"
@@ -197,7 +216,8 @@ def ask(question, limit=420):
     except Exception:
         return None
     if not hits:
-        return f"nothing answering '{q}'"
+        # retry on the raw question before giving up
+        return None
     top = hits[0]["title"]
     try:
         req = urllib.request.Request(

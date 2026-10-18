@@ -99,9 +99,19 @@ class Self:
         self.txt = open(os.path.join(args.rundir, f"{self.name}.txt"), "w")
         self.sleeping = 0
         self.n = 0
+        self.done = []   # ledger: does not scroll out
 
     def messages(self):
-        return [{"role": "user", "content": self.own[-self.args.window:] or " "}]
+        """Recent text, plus a ledger of what it has already done that never scrolls out.
+
+        The window is 1500 chars and a search result is up to 300, so only about four turns
+        fit and a previous question is gone by the time it thinks to ask again. The ledger is
+        what stops that from being amnesia.
+        """
+        head = ""
+        if self.done:
+            head = "already done: " + " | ".join(self.done[-14:]) + "\n\n"
+        return [{"role": "user", "content": head + (self.own[-self.args.window:] or " ")}]
 
     def calls(self, msg):
         """Both shapes: proper tool_calls, and the leaked <function=..> text form."""
@@ -181,7 +191,16 @@ class Self:
         calls = self.calls(msg)
         toolmsg = ""
         for nm, a, js in calls:
+            if nm in ("ask", "look", "remember", "message") and not any(
+                    str(v).strip() for v in (a.values() if isinstance(a, dict) else [a])):
+                self.log.write(json.dumps({"breath": self.n, "tool": None,
+                                           "skipped": f"{nm} with no arguments"}) + "\n")
+                continue
             out = self.call(nm, a)
+            short = " ".join(re.findall(r"[a-z']+", str(
+                a.get("question") or a.get("url") or a.get("text") or a.get("expr") or ""
+            ).lower()))[:70]
+            self.done.append(f"{nm} {short}".strip())
             if out is not None:
                 toolmsg += f"\n{nm}({js[:100]}) -> {str(out)[:300]}"
                 self.txt.write(f"\n   [{nm}: {str(out)[:150]}]\n"); self.txt.flush()
@@ -213,7 +232,7 @@ def main():
     ap.add_argument("--breath", type=float, default=8.0)
     ap.add_argument("--tokens", type=int, default=70)
     ap.add_argument("--temp", type=float, default=1.0)
-    ap.add_argument("--window", type=int, default=1500)
+    ap.add_argument("--window", type=int, default=2600)
     ap.add_argument("--creatures", type=int, default=1)
     ap.add_argument("--breaths", type=int, default=0)
     ap.add_argument("--model", default=os.environ.get("MODEL", DEFAULT_MODEL))

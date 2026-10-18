@@ -49,11 +49,12 @@ def _rows(rundir):
                 d = json.loads(line)
             except Exception:
                 continue
-            if "text" not in d:
+            # a pulled run may carry only a thought, with no text field
+            if "text" not in d and "thought" not in d:
                 continue
             d = dict(d)
             d["tick"] = d.get("breath")
-            d["thought"] = d.get("text", "")
+            d["thought"] = d.get("text") or d.get("thought") or ""
             d["rep_overlap"] = d.get("rep", 0.0)
             d["n_invented_refs"] = d.get("invented", 0)
             rows.append(d)

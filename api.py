@@ -96,6 +96,35 @@ class Client:
         self.errors += 1
         return "", {"error": last}
 
+    def chat_tools(self, messages, tools, max_tokens=300, temperature=0.9, retries=3):
+        """Native function calling. The tools live in the API envelope, not in the prompt.
+
+        This is the structural difference that matters: a capability written as prose in the
+        prompt is just more text to continue, and the model writes a manual about it. Declared
+        as tools in the envelope it is an affordance, and the model was trained on that.
+        """
+        body = {"model": self.model, "messages": messages, "tools": tools,
+                "tool_choice": "auto", "max_tokens": max_tokens,
+                "temperature": temperature, "stream": False}
+        last = None
+        for attempt in range(retries):
+            t0 = time.time()
+            try:
+                d = self._post("/chat/completions", body)
+                u = d.get("usage") or {}
+                self.tok_in += u.get("prompt_tokens") or 0
+                self.tok_out += u.get("completion_tokens") or 0
+                self.calls += 1
+                self.latency += time.time() - t0
+                return d["choices"][0]["message"], u
+            except urllib.error.HTTPError as e:
+                last = f"HTTP {e.code}: {e.read()[:200].decode('utf-8','replace') if hasattr(e,'read') else ''}"
+            except Exception as e:
+                last = str(e)
+            time.sleep(1.5 * (attempt + 1))
+        self.errors += 1
+        return {"content": "", "error": last}, {"error": last}
+
     def cost(self):
         pin, pout = PRICES.get(self.model, (0.0, 0.0))
         return self.tok_in / 1e6 * pin + self.tok_out / 1e6 * pout

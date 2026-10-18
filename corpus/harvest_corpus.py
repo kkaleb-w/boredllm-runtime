@@ -152,6 +152,44 @@ PG_TAIL = re.compile(
     r"THE FULL PROJECT GUTENBERG LICENSE|Section 1\.\s+General Terms of Use).*$")
 
 
+PROMO_TRIGGER = re.compile(
+    r"project gutenberg|"
+    r"^\s*(?:e-?text prepared|produced by|transcri(?:ber|bed)|this e-?book is for the use|"
+    r"updated editions will replace|most people start at our website|release date|"
+    r"language:|character set encoding|start of (?:the|this) project)", re.I)
+PROMO_CONT = re.compile(
+    r"^\s|gutenberg\.org|^\s*\(|^\s*(?:or|see)\b|https?://|^\s*[a-z]", re.I)
+
+
+def strip_leading_promo(text: str, rounds: int = 6) -> str:
+    """Illustrated PG editions put a note/URL block *after* the START marker.
+    Repeatedly drop a leading promotional/transcriber block: a trigger line
+    within the first 15 lines, everything before it continuation-like, cut at
+    the blank line that ends the block."""
+    lines = text.split("\n")
+    for _ in range(rounds):
+        i = 0
+        while i < len(lines) and not lines[i].strip():
+            i += 1
+        lines = lines[i:]
+        j = None
+        for k in range(min(len(lines), 15)):
+            if PROMO_TRIGGER.search(lines[k]):
+                j = k
+                break
+        if j is None:
+            break
+        if any(lines[k].strip() and not PROMO_CONT.match(lines[k]) for k in range(j)):
+            break
+        e = j
+        while e < len(lines) and lines[e].strip():
+            e += 1
+        if e == 0:
+            break
+        lines = lines[e:]
+    return "\n".join(lines)
+
+
 def strip_gutenberg(text: str) -> tuple[str, bool]:
     """Return (body, stripped_flag). Drops the identical licence furniture that
     ships with every PG file so the corpus is prose, not copyright notices."""
@@ -163,6 +201,10 @@ def strip_gutenberg(text: str) -> tuple[str, bool]:
     m3 = PG_TAIL.search(text)
     if m3:
         text = text[:m3.start()]
+        stripped = True
+    before = text
+    text = strip_leading_promo(text)
+    if text != before:
         stripped = True
     return text, stripped
 

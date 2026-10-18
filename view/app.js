@@ -1,84 +1,44 @@
-/* bored — live view. Polls snapshot.json. Never sends anything back. */
-const $ = (id) => document.getElementById(id);
-let lastN = 0;
+/* bored - a terminal that thinks. Nothing on the page but the stream, typing itself out.
+ * The stream grows forever, so the page tracks a global character index instead of
+ * re-rendering. New characters queue and type out at a human rate, so you watch the
+ * thought arrive rather than a paragraph appear. */
+const term = document.getElementById("term");
+let shown = -1;      // global index of the last character we were told about
+let buf = "";        // on screen
+let queue = "";      // accepted but not yet typed
+const MAX = 9000;
+const CPS = 55;
 
-const pct = (v) => (v === null || v === undefined) ? "—" : v + "%";
+function paint() {
+  if (buf.length > MAX) buf = "\u2026" + buf.slice(-MAX);
+  term.textContent = buf;
+  window.scrollTo(0, document.body.scrollHeight);
+}
 
-function draw(series) {
-  const c = $("chart"), dpr = window.devicePixelRatio || 1;
-  const w = c.clientWidth, h = 150;
-  c.width = w * dpr; c.height = h * dpr;
-  const x = c.getContext("2d");
-  x.scale(dpr, dpr);
-  x.clearRect(0, 0, w, h);
-  if (!series || series.length < 2) {
-    x.fillStyle = "#6d6a66"; x.font = "11px ui-monospace"; x.fillText("not enough ticks yet", 4, 20);
-    return;
+let acc = 0, last = performance.now();
+function tick(now) {
+  const dt = (now - last) / 1000; last = now;
+  if (queue) {
+    acc += dt * CPS;
+    const n = Math.floor(acc);
+    if (n > 0) { acc -= n; buf += queue.slice(0, n); queue = queue.slice(n); paint(); }
   }
-  const pad = 6, n = series.length;
-  const px = (i) => pad + (w - pad * 2) * (i / (n - 1));
-  const py = (v) => h - pad - (h - pad * 2) * Math.max(0, Math.min(1, v));
-  const styles = getComputedStyle(document.body);
-  const line = (key, color, scale) => {
-    x.beginPath(); x.strokeStyle = color; x.lineWidth = 1.25;
-    series.forEach((d, i) => {
-      const v = (d[key] ?? 0) / (scale || 1);
-      i ? x.lineTo(px(i), py(v)) : x.moveTo(px(i), py(v));
-    });
-    x.stroke();
-  };
-  x.strokeStyle = "#1d1f22"; x.lineWidth = 1;
-  [0.25, 0.5, 0.75].forEach((f) => { x.beginPath(); x.moveTo(pad, py(f)); x.lineTo(w - pad, py(f)); x.stroke(); });
-  line("rep", styles.getPropertyValue("--rep").trim(), 1);          // 0..1
-  line("inv", styles.getPropertyValue("--inv").trim(), 100);        // percent
-  line("inhabit", styles.getPropertyValue("--inh").trim(), 100);
+  requestAnimationFrame(tick);
 }
-
-function render(snap) {
-  const h = snap.headline || {}, r = snap.run || {};
-  $("rep").textContent = h.repetition ?? "—";
-  $("invent").textContent = pct(h.invention_pct);
-  $("inhabit").textContent = pct(h.inhabit_pct);
-  $("ticks").textContent = r.ticks_total ?? "—";
-  $("sub").textContent = `${r.creatures?.length || 0} creature(s), ${r.model || "?"}`;
-  draw(snap.series);
-
-  const ol = $("stream");
-  ol.innerHTML = "";
-  (snap.stream || []).forEach((t) => {
-    const li = document.createElement("li");
-    if (t.n_invented_refs) li.className = "c";
-    const meta = document.createElement("div");
-    meta.className = "meta";
-    const tag = t.stance || "?";
-    meta.innerHTML = `<b>${t.creature || ""}</b> ${String(t.ts || "").slice(11, 16)} ` +
-      `stim ${(t.stimulation ?? 0).toFixed(2)} <span class="tag ${tag}">${tag}</span>` +
-      (t.n_invented_refs ? ` <span class="tag">invents ${t.n_invented_refs}</span>` : "");
-    const body = document.createElement("div");
-    body.className = "t";
-    body.textContent = t.thought || "(nothing)";
-    li.append(meta, body);
-    ol.append(li);
-  });
-
-  const hn = snap.health || {};
-  $("foot").textContent = `${snap.generated_at} · last tick ${hn.last_tick_age_s ?? "?"}s ago · ` +
-    `records ${hn.records ?? 0} · ${h.drift_note || ""}`;
-}
+requestAnimationFrame(tick);
 
 async function poll() {
   try {
     const r = await fetch("/snapshot.json?t=" + Date.now(), { cache: "no-store" });
     if (!r.ok) throw new Error(r.status);
     const s = await r.json();
-    render(s);
-    const n = (s.run || {}).ticks_total || 0;
-    document.title = "bored — " + n + " ticks";
-    if (n !== lastN) { lastN = n; }
-  } catch (e) {
-    $("foot").textContent = "no snapshot yet (" + e.message + ")";
-  }
+    const L = s.live;
+    if (!L) return;
+    const start = L.chars - L.text.length;
+    if (shown < 0 || shown < start) { buf = L.text; queue = ""; shown = L.chars; paint(); }
+    else if (L.chars > shown) { queue += L.text.slice(shown - start); shown = L.chars; }
+    document.title = "bored - " + ((s.run || {}).ticks_total || L.breaths || 0);
+  } catch (e) { /* blank on purpose */ }
 }
 poll();
-setInterval(poll, 20000);
-addEventListener("resize", () => { if (window.__s) draw(window.__s.series); });
+setInterval(poll, 2500);

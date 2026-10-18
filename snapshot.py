@@ -89,6 +89,15 @@ def build(rundir, stream_n=30):
     creatures = sorted({r.get("creature") for r in rows if r.get("creature")})
     stamp = os.path.basename(rundir.rstrip("/"))
     mtime = mtime_of(rundir, rows)
+    # the continuous stream, for the terminal view: total length plus a tail, so the
+    # page can type out only what is new since it last looked
+    full = ""
+    for r in rows:
+        t = (r.get("thought") or "").strip()
+        if t:
+            full += (" " if full else "") + t
+    live = {"chars": len(full), "text": full[-6000:],
+            "breaths": max((r.get("tick") or 0 for r in rows), default=0)}
     return {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
         "run": {
@@ -112,6 +121,7 @@ def build(rundir, stream_n=30):
             "drift_note": "no external actions wired yet: every tick is internal by construction",
         },
         "drives": {k: latest.get(k) for k in ("energy", "comfort", "stimulation")},
+        "live": live,
         "series": bucket(rows),
         "stream": [{k: r.get(k) for k in
                     ("tick", "creature", "ts", "stimulation", "stance", "rep_overlap",

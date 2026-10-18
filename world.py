@@ -151,6 +151,25 @@ class World:
         return opts[(self.tick + self.seed) % len(opts)]
 
     # ------------------------------------------------------------ the oracle
+    #
+    # Phase 1 found that an oracle which only *narrates* truth is decorative: it
+    # can state the facts every tick and the creature will still build a life in a
+    # room that does not exist, because nothing it invents is ever contradicted.
+    # So the oracle also *acts*: fabricated objects are refused, out loud, in the
+    # world's own first-person voice, on the next observation.
+
+    def contradict(self, refs):
+        """Refuse fabricated objects, in a form that cannot be continued as prose.
+
+        Measured: prose corrections ("I put my hand where the lamp would be") get
+        *imitated*, not complied with. The model absorbs the register of being
+        corrected and starts writing denials of its own, including denials of real
+        objects. So the correction is a fact ledger line instead, which reads as
+        data rather than as a discourse turn.
+        """
+        if not refs:
+            return None
+        return "ROOM = {table, cup, door, window}"
 
     def audit(self, text: str) -> dict:
         """Heuristic oracle check. Not a solution, a measurement.

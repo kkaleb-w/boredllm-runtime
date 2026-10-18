@@ -61,6 +61,8 @@ class Creature:
         self.rows = []
         self.slept = 0
         self.oracle_rejections = 0
+        self.invention_ticks = 0
+        self.pending_correction = None
 
     def tick(self, n, client):
         w = self.world
@@ -68,8 +70,11 @@ class Creature:
         if self.args.rate == "fast":
             w.offset += self.clock_per_tick        # advance the virtual clock
         ts = self.world.now().strftime("%H:%M")
-        self.body.step()
+        self.body.step(thought_chars=len(self.prev_thoughts[-1]) if self.prev_thoughts else 0)
         obs = w.observe(self.body)
+        if self.pending_correction:
+            obs = obs + " " + self.pending_correction
+            self.pending_correction = None
         obs_line = f"[{n} {ts}] {obs}"
         hits = []
         if self.args.memory == "on" and self.body.bored:
@@ -85,16 +90,29 @@ class Creature:
                   "template" if TEMPLATE.search(thought) else
                   "inhabit" if INHABIT.search(thought) else "other")
         filter_reject = bool(audit["n_invented_refs"]) and self.args.oracle_filter
+        # the oracle acts, whether or not the filter is on
+        if self.args.oracle_contradict:
+            self.pending_correction = w.contradict(audit["invented_refs"])
+        else:
+            self.pending_correction = None
+        if audit["n_invented_refs"]:
+            self.invention_ticks += 1
         sal = None
         if thought:
             sal = self.mem._salience(thought) * (0.5 if audit["n_invented_refs"] else 1.0)
         mid = self.mem.retain(n, thought, salience=sal) if not filter_reject else None
         if filter_reject:
             self.oracle_rejections += 1
-        self.body.step(thought_chars=len(thought))
+        # NOTE: body.step() is called exactly once per tick, at the top. Calling it
+        # again here was a bug: it doubled the decay rate and drove the creature into
+        # per-tick exhaustion sleeps.
         # the oracle acts: a thought asserting facts the world does not contain is
         # logged, but it does not become this creature's corroborated past
-        if not filter_reject:
+        # a thought that stands outside the stream and comments on it is logged, but
+        # it does not become this creature's lived past. Unlike the invented-ref
+        # filter, this costs no novelty: commentary is meta, not content.
+        drop = (self.args.drop_comment and stance == "comment")
+        if not filter_reject and not drop:
             self.prev_thoughts.append(thought)
             if len(self.prev_thoughts) > 4:
                 self.prev_thoughts = self.prev_thoughts[-4:]
@@ -139,8 +157,16 @@ def summarise(rows):
         "ticks_with_invented_refs": inv,
         "invented_ref_rate_pct": round(100 * inv / len(rows), 1),
         "oracle_rejected_ticks": sum(1 for r in rows if r.get("oracle_rejected")),
+        "invention_first_half_pct": _rate(rows[:len(rows) // 2]),
+        "invention_second_half_pct": _rate(rows[len(rows) // 2:]),
         "most_invented": _top_invented(rows),
     }
+
+
+def _rate(rows):
+    if not rows:
+        return None
+    return round(100 * sum(1 for r in rows if r["n_invented_refs"]) / len(rows), 1)
 
 
 def _top_invented(rows):
@@ -168,6 +194,12 @@ def main():
                          "Measured: this prunes the novel content and keeps the flat, so it "
                          "accelerates monotony. Off by default, available as a variable.")
     ap.add_argument("--no-oracle-filter", dest="oracle_filter", action="store_false")
+    ap.add_argument("--oracle-contradict", dest="oracle_contradict", action="store_true",
+                    default=True, help="the world refuses fabricated objects out loud")
+    ap.add_argument("--no-oracle-contradict", dest="oracle_contradict", action="store_false")
+    ap.add_argument("--drop-comment", dest="drop_comment", action="store_true", default=True,
+                    help="commentary thoughts are logged but do not enter the self-view")
+    ap.add_argument("--no-drop-comment", dest="drop_comment", action="store_false")
     ap.add_argument("--tag", default="phase1")
     args = ap.parse_args()
     os.makedirs(args.outdir, exist_ok=True)

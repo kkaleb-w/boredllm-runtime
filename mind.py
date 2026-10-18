@@ -62,7 +62,7 @@ class Body:
         # stimulation: the room gives nothing, so it falls. Novel thought is the
         # only thing that pays it back, and repeating yourself costs extra.
         base = -0.016 * (dt_minutes / 10.0)
-        reward = 0.030 * (novelty - 0.5)
+        reward = 0.030 * (novelty - 0.5) * (dt_minutes / 10.0)
         self.stimulation = self._clamp(self.stimulation + base + reward)
 
     # -------------------------------------------------------- interoception

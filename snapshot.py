@@ -15,16 +15,49 @@ TARGET = 20.0        # the pre-registered target for internally directed ticks
 HUMAN = 46.9         # Killingsworth & Gilbert, 2010
 
 
+def mtime_of(rundir, rows=None):
+    """Newest mtime among whatever files this run actually has."""
+    best = 0.0
+    for pat in ("ticks.jsonl", "*.stream.jsonl", "heartbeat.json"):
+        for f in glob.glob(os.path.join(rundir, pat)):
+            best = max(best, os.path.getmtime(f))
+    return best
+
+
 def _rows(rundir):
+    """Read either loop shape: tick mode (ticks.jsonl) or stream mode (*.stream.jsonl).
+
+    Both normalise to the same row keys so the view and the metrics do not care which
+    runtime produced them.
+    """
     rows = []
-    for line in open(os.path.join(rundir, "ticks.jsonl"), encoding="utf-8", errors="replace"):
-        try:
-            d = json.loads(line)
-        except Exception:
-            continue
-        if "sleep" in d or "thought" not in d:
-            continue
-        rows.append(d)
+    tick = os.path.join(rundir, "ticks.jsonl")
+    if os.path.exists(tick):
+        for line in open(tick, encoding="utf-8", errors="replace"):
+            try:
+                d = json.loads(line)
+            except Exception:
+                continue
+            if "sleep" in d or "thought" not in d:
+                continue
+            rows.append(d)
+        return rows
+    # stream mode
+    for path in sorted(glob.glob(os.path.join(rundir, "*.stream.jsonl"))):
+        for line in open(path, encoding="utf-8", errors="replace"):
+            try:
+                d = json.loads(line)
+            except Exception:
+                continue
+            if "text" not in d:
+                continue
+            d = dict(d)
+            d["tick"] = d.get("breath")
+            d["thought"] = d.get("text", "")
+            d["rep_overlap"] = d.get("rep", 0.0)
+            d["n_invented_refs"] = d.get("invented", 0)
+            rows.append(d)
+    rows.sort(key=lambda r: (r.get("creature") or "", r.get("tick") or 0))
     return rows
 
 
@@ -55,7 +88,7 @@ def build(rundir, stream_n=30):
     latest = rows[-1] if rows else {}
     creatures = sorted({r.get("creature") for r in rows if r.get("creature")})
     stamp = os.path.basename(rundir.rstrip("/"))
-    mtime = os.path.getmtime(os.path.join(rundir, "ticks.jsonl")) if rows else 0
+    mtime = mtime_of(rundir, rows)
     return {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
         "run": {
@@ -94,7 +127,9 @@ def build(rundir, stream_n=30):
 def newest_run(root=None):
     root = root or os.path.expanduser("~/creature/runs")
     dirs = [d for d in glob.glob(os.path.join(root, "*")) if os.path.isdir(d)]
-    dirs = [d for d in dirs if os.path.exists(os.path.join(d, "ticks.jsonl"))]
+    dirs = [d for d in dirs
+            if os.path.exists(os.path.join(d, "ticks.jsonl"))
+            or glob.glob(os.path.join(d, "*.stream.jsonl"))]
     return max(dirs, key=os.path.getmtime) if dirs else None
 
 

@@ -145,15 +145,26 @@ PG_START = re.compile(
     r"\*\*\*\s*START OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\n]*\*\*\*", re.I)
 PG_END = re.compile(
     r"\*\*\*\s*END OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\n]*\*\*\*", re.I)
+# Older files end with prose footers instead of the *** markers.
+PG_TAIL = re.compile(
+    r"(?im)^\s*(?:END OF (?:THE )?PROJECT GUTENBERG|End of (?:the )?Project Gutenberg|"
+    r"Updated editions will replace|Most people start at our website|"
+    r"THE FULL PROJECT GUTENBERG LICENSE|Section 1\.\s+General Terms of Use).*$")
 
 
 def strip_gutenberg(text: str) -> tuple[str, bool]:
     """Return (body, stripped_flag). Drops the identical licence furniture that
     ships with every PG file so the corpus is prose, not copyright notices."""
+    stripped = False
     m1, m2 = PG_START.search(text), PG_END.search(text)
     if m1 and m2 and m2.start() > m1.start():
-        return text[m1.end():m2.start()], True
-    return text, False
+        text = text[m1.end():m2.start()]
+        stripped = True
+    m3 = PG_TAIL.search(text)
+    if m3:
+        text = text[:m3.start()]
+        stripped = True
+    return text, stripped
 
 
 def slugify(s: str, limit: int = 90) -> str:
@@ -311,7 +322,7 @@ def extract_single(host: str, titles: list[str], pause: float = 0.4) -> list[tup
 
 
 def harvest_mediawiki(host: str, source: str, seed_cats: list[str], per_cat: int,
-                      depth: int, cap: int, min_words: int,
+                      depth: int, cap: int, min_words: int, max_words: int = 10 ** 9,
                       intro: bool = True) -> list[dict]:
     titles = category_titles(host, seed_cats, per_cat, depth, cap)
     sys.stderr.write(f"  {source}: {len(titles)} candidate titles\n")
@@ -319,7 +330,8 @@ def harvest_mediawiki(host: str, source: str, seed_cats: list[str], per_cat: int
     pairs = extract_batch(host, titles) if intro else extract_single(host, titles)
     recs = []
     for title, txt in pairs:
-        if wc(txt) < min_words:
+        w = wc(txt)
+        if w < min_words or w > max_words:
             continue
         low = txt[:200].lower()
         if "may refer to:" in low or "topics referred to by the same term" in txt.lower():
@@ -409,8 +421,8 @@ def main() -> int:
     if args.source in ("all", "wikisource"):
         sys.stderr.write("wikisource: walking categories...\n")
         recs += harvest_mediawiki("en.wikisource.org", "wikisource-en", WS_SEEDS,
-                                 per_cat=200, depth=2, cap=int(400 * s), min_words=120,
-                                 intro=False)
+                                 per_cat=200, depth=2, cap=int(600 * s), min_words=60,
+                                 max_words=60000, intro=False)
 
     recs, dd = dedupe(recs)
     write_corpus(recs)

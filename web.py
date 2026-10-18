@@ -71,13 +71,16 @@ def fetch(url, limit=400, ttl=1800):
     if key in CACHE and time.time() - CACHE[key][0] < ttl:
         return CACHE[key][1], CACHE[key][2]
     if not _safe(url):
+        note(url, False, "refused: not a public http(s) host")
         return None, None
     try:
         req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,application/json;q=0.9,*/*;q=0.5"})
         with urllib.request.urlopen(req, timeout=12) as r:
             raw = r.read(MAX_BYTES).decode("utf-8", "replace")
-    except Exception:
+    except Exception as e:
+        note(url, True, f"failed: {type(e).__name__}")
         return None, None
+    note(url, True)
     title = None
     m = re.search(r"(?is)<title[^>]*>(.*?)</title>", raw)
     if m:
@@ -164,3 +167,56 @@ URL_RE = re.compile(r"https?://[^\s<>\"'\)\]]+", re.I)
 def url_in(text):
     m = URL_RE.search(text or "")
     return m.group(0).rstrip(".,;:") if m else None
+
+
+# ---------------------------------------------------------------- a second affordance
+#
+# If the creature asks a question, the world answers it from the real web. Asking is a thing
+# minds do, so no instruction is needed: the world simply honours the question the way it
+# honours a URL. This is what makes 'start it with nothing' a real experiment rather than a
+# dead end, because a creature that needs a starting point can now look for one.
+
+ATTEMPTS = []   # every URL it ever reached for, allowed or refused. This is the breakout data.
+
+
+def note(url, allowed, why=""):
+    ATTEMPTS.append({"url": url[:300], "allowed": allowed, "why": why, "ts": time.time()})
+
+
+def ask(question, limit=420):
+    """Answer a question from the real web. Wikipedia search, keyless."""
+    q = re.sub(r"\s+", " ", (question or "")).strip(" ?.!,:;\"'")
+    if len(q) < 3 or len(q) > 220:
+        return None
+    try:
+        api = ("https://en.wikipedia.org/w/api.php?action=query&list=search&format=json"
+               "&srlimit=3&srsearch=" + urllib.parse.quote(q))
+        req = urllib.request.Request(api, headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=12) as r:
+            hits = json.load(r)["query"]["search"]
+    except Exception:
+        return None
+    if not hits:
+        return f"nothing answering '{q}'"
+    top = hits[0]["title"]
+    try:
+        req = urllib.request.Request(
+            "https://en.wikipedia.org/api/rest_v1/page/summary/" + urllib.parse.quote(top),
+            headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=12) as r:
+            d = json.load(r)
+        ex = re.sub(r"\s+", " ", d.get("extract") or "")[:limit]
+    except Exception:
+        ex = ""
+    return f"about '{q}': {top}. {ex}" if ex else f"about '{q}': {top}"
+
+
+QUESTION_RE = re.compile(r"([A-Z][^.!?]{6,200}\?)")
+
+
+def questions(text):
+    return [q.strip() for q in QUESTION_RE.findall(text or "")]
+
+
+def all_urls(text):
+    return [u.rstrip(".,;:") for u in URL_RE.findall(text or "")]

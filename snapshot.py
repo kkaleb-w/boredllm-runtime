@@ -125,6 +125,8 @@ def build(rundir, stream_n=30):
             "drift_pct": None,
             "drift_note": "no external actions wired yet: every tick is internal by construction",
         },
+        "stats": (json.load(open(os.path.join(rundir, "stats.json")))
+                  if os.path.exists(os.path.join(rundir, "stats.json")) else None),
         "drives": {k: latest.get(k) for k in ("energy", "comfort", "stimulation")},
         "live": live,
         "series": bucket(rows),
